@@ -2,38 +2,65 @@ import { Heart, Star } from "lucide-react";
 import mealChicken from "@/assets/meal-roast-chicken.jpg";
 import mealSweetSour from "@/assets/meal-sweet-sour.jpg";
 import mealCottagePie from "@/assets/meal-cottage-pie.jpg";
+import { Link } from "react-router-dom";
+import { useBasket } from "@/context/BasketContext";
+import { useToast } from "@/hooks/use-toast";
 
 const products = [
   {
+    id: "1",
     name: "Roast Chicken Breast with Stuffing",
     weight: "390g",
-    price: "£5.99",
+    price: "5.99",
     reviews: 478,
     image: mealChicken,
     badge: "Well Balanced",
     sold: 549,
+    category: "Traditional Favourites"
   },
   {
+    id: "3",
     name: "Luxury Sweet & Sour Chicken",
     weight: "465g",
-    price: "£6.39",
+    price: "6.39",
     reviews: 318,
     image: mealSweetSour,
     badge: null,
     sold: 4176,
+    category: "World Flavours"
   },
   {
+    id: "2",
     name: "Cottage Pie",
     weight: "390g",
-    price: "£5.49",
+    price: "5.49",
     reviews: 771,
     image: mealCottagePie,
     badge: "Well Balanced",
     sold: 2340,
+    category: "Traditional Favourites"
   },
 ];
 
 const TopSellers = () => {
+  const { addToBasket } = useBasket();
+  const { toast } = useToast();
+
+  const handleAddToBasket = (product: any) => {
+    addToBasket({
+      id: product.id,
+      title: product.name,
+      price: parseFloat(product.price.replace('£', '')),
+      image: product.image,
+      category: product.category,
+      description: product.name // Fallback description
+    });
+    toast({
+      title: "Added to basket",
+      description: `${product.name} has been added to your basket.`,
+    });
+  };
+
   return (
     <section className="bg-background py-10 px-4">
       <div className="max-w-4xl mx-auto">
@@ -88,7 +115,9 @@ const TopSellers = () => {
                     <span className="bg-primary text-primary-foreground text-xs px-2 py-1 rounded font-bold">
                       {product.sold}
                     </span>
-                    <button className="bg-primary text-primary-foreground font-bold px-5 py-2 rounded-sm hover:bg-forest-dark transition-colors">
+                    <button
+                      onClick={() => handleAddToBasket(product)}
+                      className="bg-primary text-primary-foreground font-bold px-5 py-2 rounded-sm hover:bg-forest-dark transition-colors">
                       + Basket
                     </button>
                   </div>
@@ -97,6 +126,11 @@ const TopSellers = () => {
             </div>
           ))}
         </div>
+      </div>
+      <div className="text-center mt-10">
+        <Link to="/browse-meals" className="bg-primary text-primary-foreground font-bold px-8 py-3 rounded-sm hover:bg-forest-dark transition-colors">
+          View all meals
+        </Link>
       </div>
     </section>
   );
