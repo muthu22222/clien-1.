@@ -12,6 +12,8 @@ export interface Meal {
   category: string;
   isNew?: boolean;
   bestSeller?: boolean;
+  rating: number;
+  reviewsCount: number;
 }
 
 export const meals: Meal[] = [
@@ -22,7 +24,9 @@ export const meals: Meal[] = [
     price: 5.95,
     image: roastChicken,
     category: "Traditional Favourites",
-    bestSeller: true
+    bestSeller: true,
+    rating: 4.8,
+    reviewsCount: 124
   },
   {
     id: "2",
@@ -31,7 +35,9 @@ export const meals: Meal[] = [
     price: 4.95,
     image: cottagePie,
     category: "Traditional Favourites",
-    bestSeller: true
+    bestSeller: true,
+    rating: 4.5,
+    reviewsCount: 89
   },
   {
     id: "3",
@@ -39,7 +45,9 @@ export const meals: Meal[] = [
     description: "Chicken breast pieces in a tangy sweet and sour sauce with pineapple, peppers and onions, served with egg fried rice.",
     price: 6.25,
     image: sweetSour,
-    category: "World Flavours"
+    category: "World Flavours",
+    rating: 4.2,
+    reviewsCount: 56
   },
   {
     id: "4",
@@ -47,7 +55,9 @@ export const meals: Meal[] = [
     description: "Battered cod fillet served with chips and mushy peas.",
     price: 7.50,
     image: heroMeals,
-    category: "Traditional Favourites"
+    category: "Traditional Favourites",
+    rating: 4.9,
+    reviewsCount: 210
   },
   {
     id: "5",
@@ -55,7 +65,9 @@ export const meals: Meal[] = [
     description: "Layers of pasta, minced beef in tomato sauce and béchamel sauce, topped with melted cheese.",
     price: 5.50,
     image: heroMeals,
-    category: "Italian"
+    category: "Italian",
+    rating: 4.6,
+    reviewsCount: 145
   },
   {
     id: "6",
@@ -63,6 +75,8 @@ export const meals: Meal[] = [
     description: "Mixed vegetables in a medium spiced curry sauce, served with fluffy basmati rice.",
     price: 5.25,
     image: sweetSour, // Using sweet & sour as temporary placeholder for curry
-    category: "Vegetarian"
+    category: "Vegetarian",
+    rating: 4.4,
+    reviewsCount: 78
   }
 ];

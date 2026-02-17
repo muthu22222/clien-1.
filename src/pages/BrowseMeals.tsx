@@ -38,6 +38,24 @@ const BrowseMeals = () => {
                   <h3 className="font-bold text-lg text-primary">{meal.title}</h3>
                   <span className="font-bold text-foreground">£{meal.price.toFixed(2)}</span>
                 </div>
+                {/* Rating display */}
+                <div className="flex items-center gap-1 mb-2">
+                  <div className="flex">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <svg
+                        key={star}
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill={star <= Math.round(meal.rating) ? "currentColor" : "none"}
+                        stroke="currentColor"
+                        className={`w-4 h-4 ${star <= Math.round(meal.rating) ? "text-[hsl(153,70%,35%)] fill-[hsl(153,70%,35%)]" : "text-gray-300"}`}
+                      >
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span className="text-xs text-muted-foreground">({meal.reviewsCount})</span>
+                </div>
                 <p className="text-sm text-muted-foreground mb-4 flex-grow">{meal.description}</p>
                 <button
                   onClick={() => addToBasket(meal)}
