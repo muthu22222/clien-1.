@@ -68,6 +68,12 @@ const Basket = () => {
               <span>Total</span>
               <span>£{total.toFixed(2)}</span>
             </div>
+
+            <Link to="/checkout" className="block w-full">
+              <button className="w-full bg-primary text-primary-foreground font-bold py-4 rounded-sm hover:bg-forest-dark transition-colors text-lg mt-6">
+                PROCEED TO CHECKOUT
+              </button>
+            </Link>
           </div>
         )}
 
