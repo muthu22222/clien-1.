@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<"menu" | "account">("menu");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<Meal[]>([]);
@@ -84,7 +85,7 @@ const Header = () => {
                 <Search className="h-4 w-4 text-muted-foreground absolute left-2.5 top-1/2 -translate-y-1/2" />
               </div>
 
-              {/* Search Results Dropdown */}
+              {/* Search Results Dropdown (Desktop) */}
               {searchQuery && (
                 <div className="absolute top-full right-0 mt-2 w-72 bg-card rounded-md shadow-lg border border-border z-50 overflow-hidden">
                   {searchResults.length > 0 ? (
@@ -118,11 +119,64 @@ const Header = () => {
               <ShoppingBasket className="h-7 w-7 text-muted-foreground" />
               <span className="text-xs text-muted-foreground">£{total.toFixed(2)}</span>
             </Link>
-            <button aria-label="Search" className="md:hidden">
+            <button
+              aria-label="Search"
+              className="md:hidden"
+              onClick={() => setMobileSearchOpen(!mobileSearchOpen)}
+            >
               <Search className="h-7 w-7 text-muted-foreground" />
             </button>
           </div>
         </div>
+
+        {/* Mobile Search Input Area */}
+        {mobileSearchOpen && (
+          <div className="md:hidden border-t border-border bg-background p-4 animate-in slide-in-from-top-5">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search for a meal..."
+                className="w-full pl-10 pr-4 py-2 rounded-full border border-input bg-background focus:outline-none focus:ring-1 focus:ring-primary"
+                value={searchQuery}
+                onChange={(e) => handleSearch(e.target.value)}
+                autoFocus
+              />
+              <Search className="h-5 w-5 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2" />
+            </div>
+
+            {/* Search Results (Mobile) */}
+            {searchQuery && (
+              <div className="mt-2 bg-card rounded-md shadow-lg border border-border overflow-hidden max-h-60 overflow-y-auto">
+                {searchResults.length > 0 ? (
+                  <ul>
+                    {searchResults.map((meal) => (
+                      <li key={meal.id} className="border-b border-border last:border-0">
+                        <div className="flex items-center gap-3 p-3 active:bg-muted/50 transition-colors">
+                          <img src={meal.image} alt={meal.title} className="w-10 h-10 object-cover rounded-sm" />
+                          <div className="flex-1 min-w-0">
+                            <h4 className="text-sm font-bold text-foreground truncate">{meal.title}</h4>
+                            <p className="text-xs text-muted-foreground">£{meal.price.toFixed(2)}</p>
+                          </div>
+                          <button
+                            onClick={() => {
+                              handleAddToBasket(meal);
+                              setMobileSearchOpen(false);
+                            }}
+                            className="bg-primary text-primary-foreground text-xs font-bold px-3 py-1.5 rounded-sm shrink-0"
+                          >
+                            Add
+                          </button>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div className="p-4 text-sm text-muted-foreground text-center">No meals found</div>
+                )}
+              </div>
+            )}
+          </div>
+        )}
 
         {/* CTA buttons */}
         <div className="flex flex-col gap-2 px-4 pb-3 lg:flex-row lg:max-w-7xl lg:mx-auto">
