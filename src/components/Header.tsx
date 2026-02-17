@@ -131,22 +131,30 @@ const Header = () => {
 
         {/* Mobile Search Input Area */}
         {mobileSearchOpen && (
-          <div className="md:hidden border-t border-border bg-background p-4 animate-in slide-in-from-top-5">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search for a meal..."
-                className="w-full pl-10 pr-4 py-2 rounded-full border border-input bg-background focus:outline-none focus:ring-1 focus:ring-primary"
-                value={searchQuery}
-                onChange={(e) => handleSearch(e.target.value)}
-                autoFocus
-              />
-              <Search className="h-5 w-5 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2" />
+          <div className="absolute top-full left-0 w-full md:hidden border-b-2 border-gold bg-cream p-4 shadow-xl z-50 animate-in slide-in-from-top-5">
+            <div className="relative flex items-center gap-2">
+              <div className="relative flex-1">
+                <input
+                  type="text"
+                  placeholder="Search for a meal..."
+                  className="w-full pl-10 pr-4 py-2 rounded-full border border-input bg-background focus:outline-none focus:ring-1 focus:ring-primary"
+                  value={searchQuery}
+                  onChange={(e) => handleSearch(e.target.value)}
+                  autoFocus
+                />
+                <Search className="h-5 w-5 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2" />
+              </div>
+              <button
+                onClick={() => setMobileSearchOpen(false)}
+                className="text-sm font-bold text-muted-foreground hover:text-foreground p-2"
+              >
+                Close
+              </button>
             </div>
 
             {/* Search Results (Mobile) */}
             {searchQuery && (
-              <div className="mt-2 bg-card rounded-md shadow-lg border border-border overflow-hidden max-h-60 overflow-y-auto">
+              <div className="mt-2 bg-card rounded-md shadow-lg border border-border overflow-hidden max-h-[60vh] overflow-y-auto">
                 {searchResults.length > 0 ? (
                   <ul>
                     {searchResults.map((meal) => (
