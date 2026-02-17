@@ -124,28 +124,76 @@ const Checkout = () => {
                             {/* Payment Method */}
                             <div className="bg-card p-6 rounded-lg shadow-sm border border-border">
                                 <h2 className="text-xl font-bold mb-4">Payment Method</h2>
-                                <div className="space-y-2">
-                                    <div className="flex items-center gap-2">
-                                        <input
-                                            type="radio"
-                                            id="card"
-                                            name="paymentMethod"
-                                            value="card"
-                                            checked={formData.paymentMethod === "card"}
-                                            onChange={handleInputChange}
-                                        />
-                                        <label htmlFor="card">Credit / Debit Card</label>
+                                <div className="space-y-4">
+                                    <div className="space-y-2">
+                                        <div className="flex items-center gap-2">
+                                            <input
+                                                type="radio"
+                                                id="card"
+                                                name="paymentMethod"
+                                                value="card"
+                                                checked={formData.paymentMethod === "card"}
+                                                onChange={handleInputChange}
+                                            />
+                                            <label htmlFor="card" className="font-medium">Credit / Debit Card</label>
+                                        </div>
+
+                                        {formData.paymentMethod === "card" && (
+                                            <div className="ml-6 grid grid-cols-2 gap-4 animate-fade-in p-4 border border-border rounded-sm bg-muted/20">
+                                                <div className="col-span-2">
+                                                    <label className="block text-sm font-medium mb-1">Card Number</label>
+                                                    <input
+                                                        required
+                                                        type="text"
+                                                        name="cardNumber"
+                                                        placeholder="0000 0000 0000 0000"
+                                                        className="w-full px-3 py-2 border rounded-sm"
+                                                        maxLength={19}
+                                                    />
+                                                </div>
+                                                <div className="col-span-1">
+                                                    <label className="block text-sm font-medium mb-1">Expiry Date</label>
+                                                    <input
+                                                        required
+                                                        type="text"
+                                                        name="expiry"
+                                                        placeholder="MM/YY"
+                                                        className="w-full px-3 py-2 border rounded-sm"
+                                                        maxLength={5}
+                                                    />
+                                                </div>
+                                                <div className="col-span-1">
+                                                    <label className="block text-sm font-medium mb-1">CVC</label>
+                                                    <input
+                                                        required
+                                                        type="text"
+                                                        name="cvc"
+                                                        placeholder="123"
+                                                        className="w-full px-3 py-2 border rounded-sm"
+                                                        maxLength={3}
+                                                    />
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
-                                    <div className="flex items-center gap-2">
-                                        <input
-                                            type="radio"
-                                            id="paypal"
-                                            name="paymentMethod"
-                                            value="paypal"
-                                            checked={formData.paymentMethod === "paypal"}
-                                            onChange={handleInputChange}
-                                        />
-                                        <label htmlFor="paypal">PayPal</label>
+
+                                    <div className="space-y-2">
+                                        <div className="flex items-center gap-2">
+                                            <input
+                                                type="radio"
+                                                id="paypal"
+                                                name="paymentMethod"
+                                                value="paypal"
+                                                checked={formData.paymentMethod === "paypal"}
+                                                onChange={handleInputChange}
+                                            />
+                                            <label htmlFor="paypal" className="font-medium">PayPal</label>
+                                        </div>
+                                        {formData.paymentMethod === "paypal" && (
+                                            <div className="ml-6 p-4 text-sm text-muted-foreground bg-muted/20 rounded-sm">
+                                                You will be redirected to PayPal to complete your purchase securely.
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>
