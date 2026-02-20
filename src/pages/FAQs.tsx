@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AccessibilityButton from "@/components/AccessibilityButton";
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
@@ -121,6 +122,7 @@ const FAQs = () => {
         </div>
       </main>
       <Footer />
+      <AccessibilityButton />
     </div>
   );
 };

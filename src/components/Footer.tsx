@@ -23,13 +23,13 @@ const Footer = () => {
   return (
     <footer className="bg-cream-dark pt-10 pb-6 px-4">
       <div className="max-w-4xl mx-auto">
-        {/* Newsletter */}
-        <div className="mb-8">
+        {/* Email Signup Section */}
+        <div className="mb-8 text-center">
           <h3 className="text-2xl font-bold text-primary mb-4">Want to hear from us?</h3>
           <p className="text-foreground mb-4">
             Sign up to our emails to hear the latest news, special offers and new product launches
           </p>
-          <div className="flex max-w-md mx-auto lg:mx-0 border-2 border-gold rounded-sm overflow-hidden">
+          <div className="flex max-w-md mx-auto border-2 border-gold rounded-sm overflow-hidden">
             <input
               type="email"
               value={email}
@@ -41,15 +41,15 @@ const Footer = () => {
               Sign up
             </button>
           </div>
-          <p className="text-xs text-muted-foreground mt-2 max-w-md mx-auto lg:mx-0">
+          <p className="text-xs text-muted-foreground mt-2 max-w-md mx-auto">
             We will keep your information safe and not sell it on to third parties.
             Read more about how we handle your data in our{" "}
             <Link to="/data-protection-policy" className="underline">Data Protection Policy</Link>.
           </p>
         </div>
 
-        {/* Social */}
-        <div className="flex gap-3 mb-8 justify-center lg:justify-start">
+        {/* Social Media Icons */}
+        <div className="flex gap-3 mb-8 justify-center">
           <a href="#" className="bg-foreground text-card rounded-md p-2 hover:bg-primary transition-colors" aria-label="Facebook">
             <Facebook className="h-5 w-5" />
           </a>
@@ -79,7 +79,7 @@ const Footer = () => {
             ))}
           </div>
 
-          {/* App */}
+          {/* App Download */}
           <div>
             <h4 className="font-bold text-primary mb-3">Download our Wiltshire Farms Foods App</h4>
             <div className="flex flex-col gap-2">

@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AccessibilityButton from "@/components/AccessibilityButton";
 
 const PrivacyCookiePolicy = () => {
   return (
@@ -148,6 +149,7 @@ const PrivacyCookiePolicy = () => {
         </div>
       </main>
       <Footer />
+      <AccessibilityButton />
     </div>
   );
 };

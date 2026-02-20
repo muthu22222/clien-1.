@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AccessibilityButton from "@/components/AccessibilityButton";
 import { Calendar, User } from "lucide-react";
 
 interface BlogPost {
@@ -141,6 +142,7 @@ const Blog = () => {
         </div>
       </main>
       <Footer />
+      <AccessibilityButton />
     </div>
   );
 };

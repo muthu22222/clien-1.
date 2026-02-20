@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AccessibilityButton from "@/components/AccessibilityButton";
 import { MapPin, Briefcase, Clock, PoundSterling, Heart, Users } from "lucide-react";
 
 const Jobs = () => {
@@ -145,6 +146,7 @@ const Jobs = () => {
         </div>
       </main>
       <Footer />
+      <AccessibilityButton />
     </div>
   );
 };

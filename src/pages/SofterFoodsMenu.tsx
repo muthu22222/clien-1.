@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AccessibilityButton from "@/components/AccessibilityButton";
 
 const SofterFoodsMenu = () => {
   return (
@@ -95,6 +96,7 @@ const SofterFoodsMenu = () => {
         </div>
       </main>
       <Footer />
+      <AccessibilityButton />
     </div>
   );
 };
