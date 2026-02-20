@@ -11,6 +11,8 @@ interface MobileMenuProps {
 const menuLinks = [
   { label: "Browse our meals", to: "/browse-meals" },
   { label: "Home", to: "/" },
+  { label: "Diet Plans", to: "/diet-plans" },
+  { label: "Reviews", to: "/reviews" },
   { label: "How to get started", to: "/how-to-get-started" },
   { label: "About our food", to: "/about-our-food" },
   { label: "About us", to: "/about-us" },
