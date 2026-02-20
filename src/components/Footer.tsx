@@ -1,14 +1,34 @@
 import { useState } from "react";
 import { Facebook } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
+
+  const popularLinks = [
+    { label: "Contact Us", path: "/contact" },
+    { label: "Blog", path: "/blog" },
+    { label: "Softer Foods Menu", path: "/softer-foods-menu" },
+    { label: "FAQs", path: "/faqs" },
+    { label: "Jobs", path: "/jobs" },
+    { label: "Sitemap", path: "/sitemap" },
+  ];
+
+  const legalLinks = [
+    { label: "Terms & Conditions", path: "/terms-conditions" },
+    { label: "Privacy & Cookie Policy", path: "/privacy-cookie-policy" },
+    { label: "Cookie Preferences", path: "#" },
+  ];
 
   return (
     <footer className="bg-cream-dark pt-10 pb-6 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Newsletter */}
         <div className="mb-8">
+          <h3 className="text-2xl font-bold text-primary mb-4">Want to hear from us?</h3>
+          <p className="text-foreground mb-4">
+            Sign up to our emails to hear the latest news, special offers and new product launches
+          </p>
           <div className="flex max-w-md mx-auto lg:mx-0 border-2 border-gold rounded-sm overflow-hidden">
             <input
               type="email"
@@ -24,7 +44,7 @@ const Footer = () => {
           <p className="text-xs text-muted-foreground mt-2 max-w-md mx-auto lg:mx-0">
             We will keep your information safe and not sell it on to third parties.
             Read more about how we handle your data in our{" "}
-            <a href="#" className="underline">Data Protection Policy</a>.
+            <Link to="/data-protection-policy" className="underline">Data Protection Policy</Link>.
           </p>
         </div>
 
@@ -42,26 +62,26 @@ const Footer = () => {
           {/* Popular Links */}
           <div>
             <h4 className="font-bold text-primary mb-3">Popular Links</h4>
-            {["Contact Us", "Blog", "Softer Foods Menu", "FAQs", "Jobs", "Sitemap"].map((link) => (
-              <a key={link} href="#" className="block text-foreground py-1 hover:text-primary transition-colors">
-                {link}
-              </a>
+            {popularLinks.map((link) => (
+              <Link key={link.path} to={link.path} className="block text-foreground py-1 hover:text-primary transition-colors">
+                {link.label}
+              </Link>
             ))}
           </div>
 
           {/* Legal */}
           <div>
             <h4 className="font-bold text-primary mb-3">Legal</h4>
-            {["Terms & Conditions", "Privacy & Cookie Policy", "Cookie Preferences"].map((link) => (
-              <a key={link} href="#" className="block text-foreground py-1 hover:text-primary transition-colors">
-                {link}
-              </a>
+            {legalLinks.map((link) => (
+              <Link key={link.label} to={link.path} className="block text-foreground py-1 hover:text-primary transition-colors">
+                {link.label}
+              </Link>
             ))}
           </div>
 
           {/* App */}
           <div>
-            <h4 className="font-bold text-primary mb-3">Download our App</h4>
+            <h4 className="font-bold text-primary mb-3">Download our Wiltshire Farms Foods App</h4>
             <div className="flex flex-col gap-2">
               <a href="#" className="bg-foreground text-card rounded-lg px-4 py-2 inline-flex items-center gap-2 w-fit hover:bg-primary transition-colors">
                 <span className="text-xl">🍎</span>

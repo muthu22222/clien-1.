@@ -18,6 +18,15 @@ import NotFound from "./pages/NotFound";
 import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import TrackOrder from "./pages/TrackOrder";
+import CookiePolicy from "./pages/CookiePolicy";
+import TermsConditions from "./pages/TermsConditions";
+import PrivacyCookiePolicy from "./pages/PrivacyCookiePolicy";
+import DataProtectionPolicy from "./pages/DataProtectionPolicy";
+import SofterFoodsMenu from "./pages/SofterFoodsMenu";
+import FAQs from "./pages/FAQs";
+import Jobs from "./pages/Jobs";
+import Sitemap from "./pages/Sitemap";
+import Blog from "./pages/Blog";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +51,15 @@ const App = () => (
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order-confirmation" element={<OrderConfirmation />} />
             <Route path="/track-order" element={<TrackOrder />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
+            <Route path="/terms-conditions" element={<TermsConditions />} />
+            <Route path="/privacy-cookie-policy" element={<PrivacyCookiePolicy />} />
+            <Route path="/data-protection-policy" element={<DataProtectionPolicy />} />
+            <Route path="/softer-foods-menu" element={<SofterFoodsMenu />} />
+            <Route path="/faqs" element={<FAQs />} />
+            <Route path="/jobs" element={<Jobs />} />
+            <Route path="/sitemap" element={<Sitemap />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
