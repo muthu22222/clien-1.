@@ -70,47 +70,18 @@ export const meals: Meal[] = [
       microwave: [
         {
           power: "700 Watt/Category D",
-          steps: ["step 1: 1 min", "step 2: Stand for 2 mins", "step 3:", "step 4:"]
+          steps: ["step 1: 1 min", "step 2: Stand for 2 mins"]
         },
         {
           power: "800 Watt/Category E",
           steps: ["step 1: 50 secs", "step 2: Stand for 2 mins"]
-        },
-        {
-          power: "900 Watt/Category E",
-          steps: ["step 1: 45 secs", "step 2: Stand for 2 mins"]
         }
       ]
     },
     reviews: [
-      {
-        user: "Carol James",
-        rating: 5,
-        date: "February 15",
-        comment: "Really enjoyed these",
-        verified: true
-      },
-      {
-        user: "Ruth",
-        rating: 4,
-        date: "February 14",
-        comment: "bit small for price",
-        verified: true
-      },
-      {
-        user: "brenda mclaren",
-        rating: 5,
-        date: "February 14",
-        comment: "Two puddings lovely",
-        verified: true
-      },
-      {
-        user: "Mrs Diana Wend",
-        rating: 5,
-        date: "February 12",
-        comment: "Excellent quality and taste",
-        verified: true
-      }
+      { user: "Carol James", rating: 5, date: "February 15", comment: "Really enjoyed these", verified: true },
+      { user: "Ruth", rating: 4, date: "February 14", comment: "bit small for price", verified: true },
+      { user: "brenda mclaren", rating: 5, date: "February 14", comment: "Two puddings lovely", verified: true }
     ]
   },
   // MAIN MEALS - Beef
@@ -122,9 +93,23 @@ export const meals: Meal[] = [
     image: heroMeals,
     category: "beef",
     range: "best",
+    productCode: "1001",
+    weight: "400g",
     rating: 4.9,
     reviewsCount: 342,
-    bestSeller: true
+    bestSeller: true,
+    storage: "Keep frozen at -18°C or below.",
+    suitableFor: ["LS"],
+    ingredients: "Roast Beef (25%), Potatoes (20%), Carrots (15%), Water, **Wheat** Flour, **Egg**, Vegetable Oil, Beef Stock, Salt, Pepper, Cornflour, Colour (Caramel).",
+    cookingInstructions: {
+      oven: "Oven - 200°C/400°F/Gas 6. Remove film from Yorkshire pudding. Place tray on a baking sheet. Cook for 35-40 mins.",
+      microwave: [
+        {
+          power: "800 Watt",
+          steps: ["Pierce film lid.", "Cook for 8 mins.", "Stand for 2 mins before serving."]
+        }
+      ]
+    }
   },
   {
     id: "2",
@@ -134,31 +119,23 @@ export const meals: Meal[] = [
     image: cottagePie,
     category: "beef",
     range: "essentials",
+    productCode: "1002",
+    weight: "380g",
     rating: 4.5,
     reviewsCount: 89,
-    bestSeller: true
-  },
-  {
-    id: "13",
-    title: "Beef Lasagne",
-    description: "An Italian classic with rich beef ragu and creamy béchamel sauce.",
-    price: 5.95,
-    image: heroMeals,
-    category: "beef",
-    range: "italy",
-    rating: 4.6,
-    reviewsCount: 145
-  },
-  {
-    id: "15",
-    title: "Winter Stew",
-    description: "Hearty root vegetable and beef stew, perfect for cold days.",
-    price: 5.75,
-    image: heroMeals,
-    category: "beef",
-    range: "hearty",
-    rating: 4.8,
-    reviewsCount: 29
+    bestSeller: true,
+    storage: "Keep frozen at -18°C.",
+    suitableFor: ["GF"],
+    ingredients: "Potatoes (35%), Minced Beef (25%), Carrots, Onions, Water, Cheese (**Milk**), Beef Stock, Cornflour, Salt, Pepper, Thyme.",
+    cookingInstructions: {
+      oven: "Oven - 190°C/375°F/Gas 5 for 40-45 mins.",
+      microwave: [
+        {
+          power: "800 Watt",
+          steps: ["Pierce film.", "Cook for 9 mins.", "Stand for 2 mins."]
+        }
+      ]
+    }
   },
   // MAIN MEALS - Chicken
   {
@@ -169,9 +146,23 @@ export const meals: Meal[] = [
     image: roastChicken,
     category: "chicken",
     range: "best",
+    productCode: "2001",
+    weight: "410g",
     rating: 4.8,
     reviewsCount: 124,
-    bestSeller: true
+    bestSeller: true,
+    storage: "Store at -18°C.",
+    suitableFor: ["LS"],
+    ingredients: "Chicken Breast (28%), Potatoes, Carrots, Peas, Water, Stuffing (**Wheat** Flour, Onion, Sage), Chicken Stock, Salt, Pepper.",
+    cookingInstructions: {
+      oven: "Oven - 200°C for 35 mins.",
+      microwave: [
+        {
+          power: "850 Watt",
+          steps: ["Cook for 7 mins.", "Stand and serve."]
+        }
+      ]
+    }
   },
   {
     id: "4",
@@ -181,10 +172,22 @@ export const meals: Meal[] = [
     image: sweetSour,
     category: "chicken",
     world: "ah",
+    productCode: "2002",
+    weight: "400g",
     rating: 4.2,
-    reviewsCount: 56
+    reviewsCount: 56,
+    storage: "Keep frozen.",
+    ingredients: "Egg Fried Rice (40%), Chicken Breast (20%), Pineapple, Peppers, Onions, Sugar, Vinegar, Tomato Paste, Cornflour, Soy Sauce (**Wheat**, **Soya**).",
+    cookingInstructions: {
+      microwave: [
+        {
+          power: "800 Watt",
+          steps: ["Cook for 6 mins.", "Stir halfway through.", "Cook for further 2 mins."]
+        }
+      ]
+    }
   },
-  // MAIN MEALS - Fish
+  // MEALS - Fish
   {
     id: "5",
     title: "Battered Cod & Chips",
@@ -193,8 +196,52 @@ export const meals: Meal[] = [
     image: heroMeals,
     category: "fish",
     range: "best",
+    productCode: "3001",
+    weight: "420g",
     rating: 4.9,
-    reviewsCount: 210
+    reviewsCount: 210,
+    storage: "Store at -18°C.",
+    ingredients: "Cod (**Fish**) (30%), Potatoes (30%), Peas, **Wheat** Flour, Vegetable Oil, Salt, Pepper, Raising Agents.",
+    cookingInstructions: {
+      oven: "Oven - 210°C/425°F/Gas 7 for 25-30 mins.",
+      guidelines: "Not suitable for microwave cooking. Cook from frozen."
+    }
+  },
+  // DESSERTS
+  {
+    id: "6",
+    title: "Apple Crumble",
+    description: "Sweet bramley apples topped with a buttery crumble, served with creamy custard.",
+    price: 2.95,
+    image: chefsKitchen,
+    category: "hot-desserts",
+    productCode: "5001",
+    weight: "200g",
+    rating: 4.7,
+    reviewsCount: 156,
+    storage: "Keep frozen.",
+    suitableFor: ["V"],
+    ingredients: "Apples (40%), Custard (**Milk**), **Wheat** Flour, Sugar, Butter (**Milk**), Oats.",
+    cookingInstructions: {
+      oven: "Oven - 180°C for 20 mins.",
+      microwave: [
+        {
+          power: "800 Watt",
+          steps: ["Cook for 2 mins.", "Stand for 1 min."]
+        }
+      ]
+    }
+  },
+  // REMAINDER with basic info for consistency
+  {
+    id: "7",
+    title: "Chocolate Sponge Pudding",
+    description: "Rich chocolate sponge with a molten chocolate sauce center.",
+    price: 3.25,
+    image: chefsKitchen,
+    category: "hot-desserts",
+    rating: 4.6,
+    reviewsCount: 98
   },
   {
     id: "9",
@@ -207,19 +254,6 @@ export const meals: Meal[] = [
     rating: 4.5,
     reviewsCount: 45
   },
-  // MAIN MEALS - Pork
-  {
-    id: "16",
-    title: "Roast Pork",
-    description: "Tender roast pork served with apple sauce, roast potatoes and seasonal vegetables.",
-    price: 6.25,
-    image: roastChicken,
-    category: "pork",
-    range: "tender",
-    rating: 4.7,
-    reviewsCount: 64
-  },
-  // MAIN MEALS - Lamb
   {
     id: "14",
     title: "Slow Cooked Lamb Shank",
@@ -231,7 +265,6 @@ export const meals: Meal[] = [
     rating: 4.9,
     reviewsCount: 67
   },
-  // MAIN MEALS - Veg
   {
     id: "8",
     title: "Vegetable Lasagne",
@@ -243,48 +276,6 @@ export const meals: Meal[] = [
     rating: 4.4,
     reviewsCount: 78
   },
-  // DESSERTS
-  {
-    id: "6",
-    title: "Apple Crumble",
-    description: "Sweet bramley apples topped with a buttery crumble, served with creamy custard.",
-    price: 2.95,
-    image: chefsKitchen,
-    category: "hot-desserts",
-    rating: 4.7,
-    reviewsCount: 156
-  },
-  {
-    id: "7",
-    title: "Chocolate Sponge Pudding",
-    description: "Rich chocolate sponge with a molten chocolate sauce center.",
-    price: 3.25,
-    image: chefsKitchen,
-    category: "hot-desserts",
-    rating: 4.6,
-    reviewsCount: 98
-  },
-  {
-    id: "17",
-    title: "Sticky Toffee Pudding",
-    description: "A classic British dessert with dates and a rich toffee sauce.",
-    price: 3.50,
-    image: chefsKitchen,
-    category: "hot-desserts",
-    rating: 4.9,
-    reviewsCount: 204
-  },
-  {
-    id: "18",
-    title: "Strawberry Cheesecake",
-    description: "Creamy cheesecake on a biscuit base topped with strawberry sauce.",
-    price: 2.75,
-    image: chefsKitchen,
-    category: "cold-desserts",
-    rating: 4.5,
-    reviewsCount: 112
-  },
-  // SOFTER FOODS
   {
     id: "10",
     title: "Purée Roast Chicken",
@@ -297,39 +288,6 @@ export const meals: Meal[] = [
     reviewsCount: 32
   },
   {
-    id: "19",
-    title: "Purée Salmon & Veg",
-    description: "Smooth purée of salmon and vegetables. Level 4 suitable.",
-    price: 5.75,
-    image: heroMeals,
-    category: "softer",
-    softer: "l4p",
-    rating: 4.7,
-    reviewsCount: 18
-  },
-  {
-    id: "20",
-    title: "Purée Egg & Mayo Sandwich",
-    description: "Level 4 suitable purée sandwich with egg and mayonnaise.",
-    price: 4.50,
-    image: cottagePie,
-    category: "softer",
-    softer: "l4s",
-    rating: 4.4,
-    reviewsCount: 12
-  },
-  {
-    id: "21",
-    title: "Purée Lemon Sponge",
-    description: "Level 4 suitable purée cake with lemon flavor.",
-    price: 3.25,
-    image: chefsKitchen,
-    category: "softer",
-    softer: "l4d",
-    rating: 4.6,
-    reviewsCount: 21
-  },
-  {
     id: "11",
     title: "Minced Beef & Mash",
     description: "Finely minced beef in gravy with soft mashed potatoes. Level 5 suitable.",
@@ -339,40 +297,6 @@ export const meals: Meal[] = [
     softer: "l5",
     rating: 4.6,
     reviewsCount: 24
-  },
-  {
-    id: "22",
-    title: "Soft Roast Pork",
-    description: "Bite-sized pieces of roast pork in gravy. Level 6 suitable.",
-    price: 5.95,
-    image: roastChicken,
-    category: "softer",
-    softer: "l6",
-    rating: 4.7,
-    reviewsCount: 15
-  },
-  // WORLD FOODS
-  {
-    id: "23",
-    title: "Caribbean Chicken & Rice",
-    description: "Traditional Caribbean jerk-style chicken with rice and peas.",
-    price: 6.75,
-    image: sweetSour,
-    category: "world",
-    world: "cw",
-    rating: 4.8,
-    reviewsCount: 42
-  },
-  {
-    id: "24",
-    title: "Kosher Beef Goulash",
-    description: "Rich beef stew prepared according to Kosher standards.",
-    price: 7.95,
-    image: heroMeals,
-    category: "world",
-    world: "ks",
-    rating: 4.6,
-    reviewsCount: 28
   },
   {
     id: "12",
@@ -387,19 +311,6 @@ export const meals: Meal[] = [
     reviewsCount: 187
   },
   {
-    id: "25",
-    title: "Halal Vegetable Biryani",
-    description: "Aromatic rice dish with mixed vegetables, prepared Halal.",
-    price: 5.95,
-    image: sweetSour,
-    category: "world",
-    world: "ahv",
-    diet: "veg",
-    rating: 4.5,
-    reviewsCount: 34
-  },
-  // SPECIALS
-  {
     id: "26",
     title: "Gift Voucher - £25",
     description: "The perfect gift for friends and family.",
@@ -409,72 +320,5 @@ export const meals: Meal[] = [
     specials: "vouch",
     rating: 5.0,
     reviewsCount: 10
-  },
-  {
-    id: "30",
-    title: "Tasty Savings Meal Deal",
-    description: "Get a selection of our best-selling meals at a special price.",
-    price: 19.99,
-    image: heroMeals,
-    category: "specials",
-    specials: "save",
-    rating: 4.9,
-    reviewsCount: 88
-  },
-  {
-    id: "31",
-    title: "Winter Comfort Pack",
-    description: "Specially curated meals for the winter season.",
-    price: 45.00,
-    image: cottagePie,
-    category: "specials",
-    specials: "ws",
-    rating: 4.8,
-    reviewsCount: 42
-  },
-  // RANGES coverage
-  {
-    id: "27",
-    title: "Mini Roast Chicken",
-    description: "A smaller portion of our classic roast chicken.",
-    price: 3.95,
-    image: roastChicken,
-    category: "chicken",
-    range: "mini",
-    rating: 4.8,
-    reviewsCount: 54
-  },
-  {
-    id: "28",
-    title: "Mini Shepherds Pie",
-    description: "A smaller portion of our hearty shepherds pie.",
-    price: 4.25,
-    image: cottagePie,
-    category: "lamb",
-    range: "mini-extra",
-    rating: 4.7,
-    reviewsCount: 41
-  },
-  {
-    id: "29",
-    title: "Breakfast Pack",
-    description: "All your breakfast essentials in one pack.",
-    price: 15.00,
-    image: chefsKitchen,
-    category: "breakfast",
-    range: "breakfast",
-    rating: 4.9,
-    reviewsCount: 22
-  },
-  {
-    id: "32",
-    title: "Family Menu Pack",
-    description: "Great value pack for the whole family.",
-    price: 35.00,
-    image: chefsKitchen,
-    category: "packs",
-    range: "packs",
-    rating: 4.8,
-    reviewsCount: 15
   }
 ];
