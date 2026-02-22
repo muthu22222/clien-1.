@@ -1,9 +1,3 @@
-import roastChicken from "@/assets/meal-roast-chicken.jpg";
-import cottagePie from "@/assets/meal-cottage-pie.jpg";
-import sweetSour from "@/assets/meal-sweet-sour.jpg";
-import heroMeals from "@/assets/hero-meals.jpg";
-import chefsKitchen from "@/assets/chefs-kitchen.jpg";
-
 export interface Review {
   user: string;
   rating: number;
@@ -55,7 +49,7 @@ export const meals: Meal[] = [
     title: "Melt in the Middle Chocolate Puddings (pack of 2)",
     description: "A rich Belgian dark chocolate sponge with a lusciously chocolate molten centre. Velvety and indulgent.",
     price: 4.49,
-    image: chefsKitchen,
+    image: "https://images.unsplash.com/photo-1541919553257-802ba24490bc?auto=format&fit=crop&q=80&w=800",
     category: "hot-desserts",
     subCategory: "DESSERTS & CAKES",
     productCode: "2192",
@@ -92,7 +86,7 @@ export const meals: Meal[] = [
     title: "Roast Beef & Yorkshire Pudding",
     description: "Succulent slices of roast beef served with a crisp Yorkshire pudding, roast potatoes, carrots and rich gravy.",
     price: 6.95,
-    image: heroMeals,
+    image: "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&q=80&w=800",
     category: "beef",
     range: "best",
     productCode: "1001",
@@ -119,7 +113,7 @@ export const meals: Meal[] = [
     title: "Cottage Pie",
     description: "Minced beef in a rich gravy with carrots and onions, topped with mashed potato and cheese.",
     price: 4.95,
-    image: cottagePie,
+    image: "https://images.unsplash.com/photo-1594998813208-65744f45214b?auto=format&fit=crop&q=80&w=800",
     category: "beef",
     range: "essentials",
     productCode: "1002",
@@ -147,7 +141,7 @@ export const meals: Meal[] = [
     title: "Roast Chicken Breast",
     description: "Succulent roast chicken breast with sage & onion stuffing, served with roast potatoes, carrots, peas and gravy.",
     price: 5.95,
-    image: roastChicken,
+    image: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&q=80&w=800",
     category: "chicken",
     range: "best",
     productCode: "2001",
@@ -174,7 +168,7 @@ export const meals: Meal[] = [
     title: "Sweet & Sour Chicken",
     description: "Chicken breast pieces in a tangy sweet and sour sauce with pineapple, peppers and onions, served with egg fried rice.",
     price: 6.25,
-    image: sweetSour,
+    image: "https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&q=80&w=800",
     category: "chicken",
     world: "ah",
     productCode: "2002",
@@ -199,7 +193,7 @@ export const meals: Meal[] = [
     title: "Battered Cod & Chips",
     description: "Battered cod fillet served with chunky chips and mushy peas.",
     price: 7.50,
-    image: heroMeals,
+    image: "https://images.unsplash.com/photo-1574621100236-d25b64cfd649?auto=format&fit=crop&q=80&w=800",
     category: "fish",
     range: "best",
     productCode: "3001",
@@ -219,7 +213,7 @@ export const meals: Meal[] = [
     title: "Gluten Free Fish Pie",
     description: "Pieces of white fish, salmon and smoked haddock in a creamy leek sauce, topped with buttery mash.",
     price: 6.50,
-    image: cottagePie,
+    image: "https://images.unsplash.com/photo-1615485243329-3738466100cc?auto=format&fit=crop&q=80&w=800",
     category: "fish",
     diet: "gluten",
     productCode: "3002",
@@ -246,7 +240,7 @@ export const meals: Meal[] = [
     title: "Slow Cooked Lamb Shank",
     description: "Tender lamb shank in a red wine and rosemary gravy, served with minted mash.",
     price: 8.95,
-    image: chefsKitchen,
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800",
     category: "lamb",
     range: "chefs",
     productCode: "4001",
@@ -272,7 +266,7 @@ export const meals: Meal[] = [
     title: "Vegetable Lasagne",
     description: "Layers of pasta with a rich Mediterranean vegetable and tomato sauce, topped with béchamel and cheese.",
     price: 5.25,
-    image: heroMeals,
+    image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?auto=format&fit=crop&q=80&w=800",
     category: "veg",
     diet: "veg",
     productCode: "4501",
@@ -299,7 +293,7 @@ export const meals: Meal[] = [
     title: "Apple Crumble",
     description: "Sweet bramley apples topped with a buttery crumble, served with creamy custard.",
     price: 2.95,
-    image: chefsKitchen,
+    image: "https://images.unsplash.com/photo-1621814674044-6a0d4bde2916?auto=format&fit=crop&q=80&w=800",
     category: "hot-desserts",
     productCode: "5001",
     weight: "200g",
@@ -324,7 +318,7 @@ export const meals: Meal[] = [
     title: "Chocolate Sponge Pudding",
     description: "Rich chocolate sponge with a molten chocolate sauce center.",
     price: 3.25,
-    image: chefsKitchen,
+    image: "https://images.unsplash.com/photo-1606312485806-22441276531f?auto=format&fit=crop&q=80&w=800",
     category: "hot-desserts",
     productCode: "5002",
     weight: "110g",
@@ -349,7 +343,7 @@ export const meals: Meal[] = [
     title: "Purée Roast Chicken",
     description: "A smooth purée of roast chicken, carrots and potatoes with gravy. Level 4 suitable.",
     price: 5.50,
-    image: roastChicken,
+    image: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&q=80&w=800",
     category: "softer",
     softer: "l4p",
     productCode: "6001",
@@ -374,7 +368,7 @@ export const meals: Meal[] = [
     title: "Minced Beef & Mash",
     description: "Finely minced beef in gravy with soft mashed potatoes. Level 5 suitable.",
     price: 5.25,
-    image: cottagePie,
+    image: "https://images.unsplash.com/photo-1594998813208-65744f45214b?auto=format&fit=crop&q=80&w=800",
     category: "softer",
     softer: "l5",
     productCode: "6002",
@@ -400,7 +394,7 @@ export const meals: Meal[] = [
     title: "Chicken Tikka Masala",
     description: "Chicken breast pieces in a mildly spiced tomato and cream sauce, served with pilau rice.",
     price: 6.45,
-    image: sweetSour,
+    image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80&w=800",
     category: "world",
     world: "ah",
     range: "asia",
@@ -425,7 +419,7 @@ export const meals: Meal[] = [
     id: "26",
     title: "Gift Voucher - £25",
     price: 25.00,
-    image: chefsKitchen,
+    image: "https://images.unsplash.com/photo-1549463595-b092c4cd0c07?auto=format&fit=crop&q=80&w=800",
     category: "specials",
     specials: "vouch",
     productCode: "GV25",
@@ -435,4 +429,3 @@ export const meals: Meal[] = [
     description: "Valid for 12 months from date of purchase. Can be used for any Wiltshire Farm Foods order."
   }
 ];
-
