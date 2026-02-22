@@ -3,11 +3,11 @@ import { Accessibility } from "lucide-react";
 const AccessibilityButton = () => {
   return (
     <button
-      className="fixed bottom-4 right-4 bg-primary text-primary-foreground p-3 rounded-full shadow-lg hover:bg-forest-dark transition-colors z-40"
+      className="fixed right-4 top-[60%] -translate-y-1/2 bg-[#013220] text-white p-2.5 rounded-sm shadow-lg hover:bg-black transition-colors z-[45]"
       aria-label="Accessibility options"
       title="Accessibility options"
     >
-      <Accessibility className="h-5 w-5" />
+      <Accessibility className="h-6 w-6" />
     </button>
   );
 };

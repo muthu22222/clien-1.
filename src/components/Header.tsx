@@ -38,102 +38,71 @@ const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-cream border-b-2 border-gold">
+      <header className="bg-[#FEF9F3] border-b border-[#FBB016]/20">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
           {/* Left: hamburger / shop */}
           <button
-            className="flex flex-col items-center gap-0.5 lg:hidden"
+            className="flex flex-col items-center gap-0.5"
             onClick={() => { setMenuOpen(true); setActiveTab("menu"); }}
             aria-label="Open menu"
           >
-            <Menu className="h-7 w-7 text-muted-foreground" />
-            <span className="text-xs font-bold text-muted-foreground">SHOP</span>
+            <Menu className="h-7 w-7 text-[#013220]" />
+            <span className="text-[10px] font-bold text-[#013220]">SHOP</span>
           </button>
 
-          {/* Desktop nav */}
+          {/* Desktop nav hidden on mobile */}
           <nav className="hidden lg:flex items-center gap-6">
-            <Link to="/" className="font-bold text-foreground hover:text-primary transition-colors">Home</Link>
-            <Link to="/browse-meals" className="font-bold text-foreground hover:text-primary transition-colors">Browse our meals</Link>
-            <Link to="/how-to-get-started" className="font-bold text-foreground hover:text-primary transition-colors">How to get started</Link>
-            <Link to="/about-our-food" className="font-bold text-foreground hover:text-primary transition-colors">About our food</Link>
-            <Link to="/about-us" className="font-bold text-foreground hover:text-primary transition-colors">About us</Link>
-            <Link to="/contact" className="font-bold text-foreground hover:text-primary transition-colors">Contact Us</Link>
+            <Link to="/" className="font-bold text-[#013220] hover:text-primary transition-colors">Home</Link>
+            <Link to="/browse-meals" className="font-bold text-[#013220] hover:text-primary transition-colors">Browse our meals</Link>
           </nav>
 
           {/* Logo */}
-          <Link to="/" className="flex flex-col items-center">
-            <div className="bg-primary px-4 py-1 rounded-sm">
-              <span className="text-primary-foreground font-bold text-sm tracking-widest">WILTSHIRE EST. FARM 1991 FOODS</span>
+          <Link to="/" className="flex flex-col items-center group py-2">
+            <div className="flex flex-col items-center scale-95 md:scale-100">
+              <span className="text-[#6B6B76] font-bold text-[11px] md:text-xs tracking-[0.25em] leading-none uppercase">Wiltshire</span>
+              <div className="flex items-center gap-1.5 my-1">
+                <div className="h-[1px] w-5 bg-[#6B6B76]/20"></div>
+                <span className="text-[#6B6B76] text-[8px] md:text-[9px] font-bold tracking-[0.1em] uppercase">Est. Farm 1991</span>
+                <div className="h-[1px] w-5 bg-[#6B6B76]/20"></div>
+              </div>
+              <div className="bg-[#FBB016] px-6 py-0.5 w-full text-center">
+                <span className="text-white font-bold text-sm md:text-lg tracking-[0.3em] -mr-[0.3em]">FOODS</span>
+              </div>
             </div>
           </Link>
 
           {/* Right icons */}
-          <div className="flex items-center gap-4 relative">
-            <div className="relative hidden md:block">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search for a meal..."
-                  className="pl-8 pr-4 py-1 rounded-full border border-input bg-background/50 focus:bg-background focus:outline-none focus:ring-1 focus:ring-primary w-48 transition-all focus:w-64"
-                  value={searchQuery}
-                  onChange={(e) => handleSearch(e.target.value)}
-                />
-                <Search className="h-4 w-4 text-muted-foreground absolute left-2.5 top-1/2 -translate-y-1/2" />
-              </div>
-
-              {/* Search Results Dropdown (Desktop) */}
-              {searchQuery && (
-                <div className="absolute top-full right-0 mt-2 w-72 bg-card rounded-md shadow-lg border border-border z-50 overflow-hidden">
-                  {searchResults.length > 0 ? (
-                    <ul>
-                      {searchResults.map((meal) => (
-                        <li key={meal.id} className="border-b border-border last:border-0">
-                          <div className="flex items-center gap-3 p-3 hover:bg-muted/50 transition-colors">
-                            <img src={meal.image} alt={meal.title} className="w-12 h-12 object-cover rounded-sm" />
-                            <div className="flex-1 min-w-0">
-                              <h4 className="text-sm font-bold text-foreground truncate">{meal.title}</h4>
-                              <p className="text-xs text-muted-foreground">£{meal.price.toFixed(2)}</p>
-                            </div>
-                            <button
-                              onClick={() => handleAddToBasket(meal)}
-                              className="bg-primary text-primary-foreground text-xs font-bold px-2 py-1.5 rounded-sm hover:bg-forest-dark shrink-0"
-                            >
-                              Add
-                            </button>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <div className="p-4 text-sm text-muted-foreground text-center">No meals found</div>
-                  )}
-                </div>
-              )}
-            </div>
-
+          <div className="flex items-center gap-4">
             <Link to="/basket" className="flex flex-col items-center">
-              <ShoppingBasket className="h-7 w-7 text-muted-foreground" />
-              <span className="text-xs text-muted-foreground">£{total.toFixed(2)}</span>
+              <div className="relative">
+                <ShoppingBasket className="h-7 w-7 text-[#013220]" />
+                {total > 0 && (
+                  <div className="absolute -top-1 -right-1 bg-secondary text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center font-bold">
+                    {meals.filter(m => total > 0).length > 0 ? "!" : ""}
+                  </div>
+                )}
+              </div>
+              <span className="text-[10px] font-bold text-[#013220]">£{total.toFixed(2)}</span>
             </Link>
             <button
               aria-label="Search"
-              className="md:hidden"
+              className="p-1"
               onClick={() => setMobileSearchOpen(!mobileSearchOpen)}
             >
-              <Search className="h-7 w-7 text-muted-foreground" />
+              <Search className="h-7 w-7 text-[#013220]" />
             </button>
           </div>
         </div>
 
         {/* Mobile Search Input Area */}
         {mobileSearchOpen && (
-          <div className="absolute top-full left-0 w-full md:hidden border-b-2 border-gold bg-cream p-4 shadow-xl z-50 animate-in slide-in-from-top-5">
+          <div className="absolute top-16 left-0 w-full border-b border-[#FBB016]/20 bg-white p-4 shadow-xl z-50 animate-in slide-in-from-top-5">
             <div className="relative flex items-center gap-2">
               <div className="relative flex-1">
                 <input
                   type="text"
                   placeholder="Search for a meal..."
-                  className="w-full pl-10 pr-4 py-2 rounded-full border border-input bg-background focus:outline-none focus:ring-1 focus:ring-primary"
+                  className="w-full pl-10 pr-4 py-2 rounded-sm border border-input bg-background focus:outline-none focus:ring-1 focus:ring-[#FBB016]"
                   value={searchQuery}
                   onChange={(e) => handleSearch(e.target.value)}
                   autoFocus
@@ -141,8 +110,8 @@ const Header = () => {
                 <Search className="h-5 w-5 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2" />
               </div>
               <button
-                onClick={() => setMobileSearchOpen(false)}
-                className="text-sm font-bold text-muted-foreground hover:text-foreground p-2"
+                onClick={() => { setMobileSearchOpen(false); setSearchQuery(""); }}
+                className="text-sm font-bold text-[#013220] p-2"
               >
                 Close
               </button>
@@ -154,11 +123,11 @@ const Header = () => {
                 {searchResults.length > 0 ? (
                   <ul>
                     {searchResults.map((meal) => (
-                      <li key={meal.id} className="border-b border-border last:border-0">
-                        <div className="flex items-center gap-3 p-3 active:bg-muted/50 transition-colors">
-                          <img src={meal.image} alt={meal.title} className="w-10 h-10 object-cover rounded-sm" />
+                      <li key={meal.id} className="border-b border-border last:border-0 hover:bg-muted/30">
+                        <div className="flex items-center gap-3 p-3 transition-colors">
+                          <img src={meal.image} alt={meal.title} className="w-12 h-12 object-cover rounded-sm" />
                           <div className="flex-1 min-w-0">
-                            <h4 className="text-sm font-bold text-foreground truncate">{meal.title}</h4>
+                            <h4 className="text-sm font-bold text-[#013220] truncate">{meal.title}</h4>
                             <p className="text-xs text-muted-foreground">£{meal.price.toFixed(2)}</p>
                           </div>
                           <button
@@ -166,7 +135,7 @@ const Header = () => {
                               handleAddToBasket(meal);
                               setMobileSearchOpen(false);
                             }}
-                            className="bg-primary text-primary-foreground text-xs font-bold px-3 py-1.5 rounded-sm shrink-0"
+                            className="bg-[#013220] text-white text-xs font-bold px-3 py-1.5 rounded-sm shrink-0"
                           >
                             Add
                           </button>
@@ -183,16 +152,16 @@ const Header = () => {
         )}
 
         {/* CTA buttons */}
-        <div className="flex flex-col gap-2 px-4 pb-3 lg:flex-row lg:max-w-7xl lg:mx-auto">
+        <div className="flex flex-col gap-0 lg:flex-row lg:max-w-7xl lg:mx-auto">
           <Link
             to="/browse-meals"
-            className="block w-full text-center bg-secondary text-secondary-foreground font-bold py-3 rounded-sm hover:bg-gold-dark transition-colors"
+            className="block w-full text-center bg-[#FBB016] text-[#013220] font-bold py-3.5 hover:bg-[#e8a214] transition-colors uppercase tracking-widest text-[13px] border-b border-[#013220]/5"
           >
             Browse our meals
           </Link>
           <Link
             to="/request-brochure"
-            className="block w-full text-center bg-primary text-primary-foreground font-bold py-3 rounded-sm hover:bg-forest-dark transition-colors"
+            className="block w-full text-center bg-[#013220] text-white font-bold py-3.5 hover:bg-[#00281a] transition-colors uppercase tracking-widest text-[13px]"
           >
             Request a brochure
           </Link>
