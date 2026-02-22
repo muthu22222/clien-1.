@@ -30,6 +30,8 @@ import Jobs from "./pages/Jobs";
 import Sitemap from "./pages/Sitemap";
 import Blog from "./pages/Blog";
 
+import MealDetails from "./pages/MealDetails";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -43,6 +45,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/basket" element={<Basket />} />
             <Route path="/browse-meals" element={<BrowseMeals />} />
+            <Route path="/meal/:id" element={<MealDetails />} />
             <Route path="/how-to-get-started" element={<HowToGetStarted />} />
             <Route path="/about-our-food" element={<AboutOurFood />} />
             <Route path="/about-us" element={<AboutUs />} />

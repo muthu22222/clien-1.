@@ -125,13 +125,21 @@ const Header = () => {
                     {searchResults.map((meal) => (
                       <li key={meal.id} className="border-b border-border last:border-0 hover:bg-muted/30">
                         <div className="flex items-center gap-3 p-3 transition-colors">
-                          <img src={meal.image} alt={meal.title} className="w-12 h-12 object-cover rounded-sm" />
-                          <div className="flex-1 min-w-0">
-                            <h4 className="text-sm font-bold text-[#013220] truncate">{meal.title}</h4>
-                            <p className="text-xs text-muted-foreground">£{meal.price.toFixed(2)}</p>
-                          </div>
+                          <Link
+                            to={`/meal/${meal.id}`}
+                            className="flex items-center gap-3 flex-1 min-w-0"
+                            onClick={() => setMobileSearchOpen(false)}
+                          >
+                            <img src={meal.image} alt={meal.title} className="w-12 h-12 object-cover rounded-sm" />
+                            <div className="min-w-0">
+                              <h4 className="text-sm font-bold text-[#013220] truncate">{meal.title}</h4>
+                              <p className="text-xs text-muted-foreground">£{meal.price.toFixed(2)}</p>
+                            </div>
+                          </Link>
                           <button
-                            onClick={() => {
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
                               handleAddToBasket(meal);
                               setMobileSearchOpen(false);
                             }}

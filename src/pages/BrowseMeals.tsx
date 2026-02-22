@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TopSellers from "@/components/TopSellers";
@@ -71,7 +71,7 @@ const BrowseMeals = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
             {filteredMeals.map((meal) => (
               <div key={meal.id} className="bg-card rounded-lg shadow-sm overflow-hidden border border-border flex flex-col group hover:shadow-md transition-shadow">
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <Link to={`/meal/${meal.id}`} className="relative aspect-[4/3] overflow-hidden block">
                   <img
                     src={meal.image}
                     alt={meal.title}
@@ -82,10 +82,12 @@ const BrowseMeals = () => {
                       BEST SELLER
                     </span>
                   )}
-                </div>
+                </Link>
                 <div className="p-4 flex flex-col flex-grow">
                   <div className="flex justify-between items-start mb-1">
-                    <h3 className="font-bold text-base text-primary leading-tight line-clamp-2">{meal.title}</h3>
+                    <Link to={`/meal/${meal.id}`}>
+                      <h3 className="font-bold text-base text-primary leading-tight line-clamp-2 hover:underline">{meal.title}</h3>
+                    </Link>
                   </div>
                   <div className="mb-2">
                     <span className="font-bold text-lg text-foreground">£{meal.price.toFixed(2)}</span>

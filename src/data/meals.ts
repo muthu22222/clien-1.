@@ -4,6 +4,23 @@ import sweetSour from "@/assets/meal-sweet-sour.jpg";
 import heroMeals from "@/assets/hero-meals.jpg";
 import chefsKitchen from "@/assets/chefs-kitchen.jpg";
 
+export interface Review {
+  user: string;
+  rating: number;
+  date: string;
+  comment: string;
+  verified?: boolean;
+}
+
+export interface CookingInstructions {
+  oven?: string;
+  microwave?: {
+    power: string;
+    steps: string[];
+  }[];
+  guidelines?: string;
+}
+
 export interface Meal {
   id: string;
   title: string;
@@ -11,6 +28,7 @@ export interface Meal {
   price: number;
   image: string;
   category: string;
+  subCategory?: string;
   range?: string;
   diet?: string;
   softer?: string;
@@ -20,9 +38,81 @@ export interface Meal {
   bestSeller?: boolean;
   rating: number;
   reviewsCount: number;
+  productCode?: string;
+  weight?: string;
+  cookingInstructions?: CookingInstructions;
+  ingredients?: string;
+  storage?: string;
+  suitableFor?: string[];
+  reviews?: Review[];
 }
 
 export const meals: Meal[] = [
+  // MEAL FROM SCREENSHOT
+  {
+    id: "2192",
+    title: "Melt in the Middle Chocolate Puddings (pack of 2)",
+    description: "A rich Belgian dark chocolate sponge with a lusciously chocolate molten centre. Velvety and indulgent.",
+    price: 4.49,
+    image: chefsKitchen,
+    category: "hot-desserts",
+    subCategory: "DESSERTS & CAKES",
+    productCode: "2192",
+    weight: "90g",
+    rating: 4.5,
+    reviewsCount: 6,
+    suitableFor: ["LS", "V"],
+    storage: "Store at -18°C, do not refreeze once thawed",
+    ingredients: "**Egg**, Sugar, Belgian Dark Chocolate (22%) (Cocoa Mass, Sugar, Fat Reduced Cocoa Powder, Emulsifiers (Rapeseed Lecithin, **Soya** Lecithin), Natural Vanilla Flavouring), Butter (**Milk**), Vegetable Oils (Rapeseed, Sunflower), **Wheat** Flour, Water, **Milk** Powder, Cocoa Powder (1.7%).",
+    cookingInstructions: {
+      oven: "Oven - place on a lined baking tray. Pre-heated oven: 200°C/400°F/Gas 6. Fan oven: 180°C/350°F. 10 mins. Use a cake slice to carefully lift the pudding onto a serving plate.",
+      guidelines: "Always cook from frozen. Remove all packaging (including paper case). Ensure food is warmed through before serving. Once heated do not reheat. For best results oven heat.",
+      microwave: [
+        {
+          power: "700 Watt/Category D",
+          steps: ["step 1: 1 min", "step 2: Stand for 2 mins", "step 3:", "step 4:"]
+        },
+        {
+          power: "800 Watt/Category E",
+          steps: ["step 1: 50 secs", "step 2: Stand for 2 mins"]
+        },
+        {
+          power: "900 Watt/Category E",
+          steps: ["step 1: 45 secs", "step 2: Stand for 2 mins"]
+        }
+      ]
+    },
+    reviews: [
+      {
+        user: "Carol James",
+        rating: 5,
+        date: "February 15",
+        comment: "Really enjoyed these",
+        verified: true
+      },
+      {
+        user: "Ruth",
+        rating: 4,
+        date: "February 14",
+        comment: "bit small for price",
+        verified: true
+      },
+      {
+        user: "brenda mclaren",
+        rating: 5,
+        date: "February 14",
+        comment: "Two puddings lovely",
+        verified: true
+      },
+      {
+        user: "Mrs Diana Wend",
+        rating: 5,
+        date: "February 12",
+        comment: "Excellent quality and taste",
+        verified: true
+      }
+    ]
+  },
   // MAIN MEALS - Beef
   {
     id: "1",
