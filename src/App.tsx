@@ -2,6 +2,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ChatBubble from "./components/ChatBubble";
+import AccessibilityButton from "./components/AccessibilityButton";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Basket from "./pages/Basket";
@@ -27,8 +29,6 @@ import FAQs from "./pages/FAQs";
 import Jobs from "./pages/Jobs";
 import Sitemap from "./pages/Sitemap";
 import Blog from "./pages/Blog";
-import DietPlans from "./pages/DietPlans";
-import Reviews from "./pages/Reviews";
 
 const queryClient = new QueryClient();
 
@@ -43,8 +43,6 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/basket" element={<Basket />} />
             <Route path="/browse-meals" element={<BrowseMeals />} />
-            <Route path="/diet-plans" element={<DietPlans />} />
-            <Route path="/reviews" element={<Reviews />} />
             <Route path="/how-to-get-started" element={<HowToGetStarted />} />
             <Route path="/about-our-food" element={<AboutOurFood />} />
             <Route path="/about-us" element={<AboutUs />} />
@@ -67,6 +65,8 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
+        <ChatBubble />
+        <AccessibilityButton />
       </TooltipProvider>
     </BasketProvider>
   </QueryClientProvider>

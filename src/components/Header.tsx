@@ -54,8 +54,6 @@ const Header = () => {
           <nav className="hidden lg:flex items-center gap-6">
             <Link to="/" className="font-bold text-foreground hover:text-primary transition-colors">Home</Link>
             <Link to="/browse-meals" className="font-bold text-foreground hover:text-primary transition-colors">Browse our meals</Link>
-            <Link to="/diet-plans" className="font-bold text-foreground hover:text-primary transition-colors">Diet Plans</Link>
-            <Link to="/reviews" className="font-bold text-foreground hover:text-primary transition-colors">Reviews</Link>
             <Link to="/how-to-get-started" className="font-bold text-foreground hover:text-primary transition-colors">How to get started</Link>
             <Link to="/about-our-food" className="font-bold text-foreground hover:text-primary transition-colors">About our food</Link>
             <Link to="/about-us" className="font-bold text-foreground hover:text-primary transition-colors">About us</Link>

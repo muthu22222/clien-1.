@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AccessibilityButton from "@/components/AccessibilityButton";
 
 const DataProtectionPolicy = () => {
   return (
@@ -122,7 +121,6 @@ const DataProtectionPolicy = () => {
         </div>
       </main>
       <Footer />
-      <AccessibilityButton />
     </div>
   );
 };

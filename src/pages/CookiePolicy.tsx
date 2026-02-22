@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AccessibilityButton from "@/components/AccessibilityButton";
 
 const CookiePolicy = () => {
   return (
@@ -104,7 +103,6 @@ const CookiePolicy = () => {
         </div>
       </main>
       <Footer />
-      <AccessibilityButton />
     </div>
   );
 };
