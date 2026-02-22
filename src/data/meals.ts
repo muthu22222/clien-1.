@@ -42,6 +42,7 @@ export interface Meal {
   weight?: string;
   cookingInstructions?: CookingInstructions;
   ingredients?: string;
+  ingredientSummary?: string;
   storage?: string;
   suitableFor?: string[];
   reviews?: Review[];
@@ -64,6 +65,7 @@ export const meals: Meal[] = [
     suitableFor: ["LS", "V"],
     storage: "Store at -18°C, do not refreeze once thawed",
     ingredients: "**Egg**, Sugar, Belgian Dark Chocolate (22%) (Cocoa Mass, Sugar, Fat Reduced Cocoa Powder, Emulsifiers (Rapeseed Lecithin, **Soya** Lecithin), Natural Vanilla Flavouring), Butter (**Milk**), Vegetable Oils (Rapeseed, Sunflower), **Wheat** Flour, Water, **Milk** Powder, Cocoa Powder (1.7%).",
+    ingredientSummary: "Delicious Belgian chocolate sponge with a rich hidden chocolate centre.",
     cookingInstructions: {
       oven: "Oven - place on a lined baking tray. Pre-heated oven: 200°C/400°F/Gas 6. Fan oven: 180°C/350°F. 10 mins. Use a cake slice to carefully lift the pudding onto a serving plate.",
       guidelines: "Always cook from frozen. Remove all packaging (including paper case). Ensure food is warmed through before serving. Once heated do not reheat. For best results oven heat.",
@@ -101,6 +103,7 @@ export const meals: Meal[] = [
     storage: "Keep frozen at -18°C or below.",
     suitableFor: ["LS"],
     ingredients: "Roast Beef (25%), Potatoes (20%), Carrots (15%), Water, **Wheat** Flour, **Egg**, Vegetable Oil, Beef Stock, Salt, Pepper, Cornflour, Colour (Caramel).",
+    ingredientSummary: "Tender beef slices with traditional Yorkshire pudding, roasties and seasonal carrots.",
     cookingInstructions: {
       oven: "Oven - 200°C/400°F/Gas 6. Remove film from Yorkshire pudding. Place tray on a baking sheet. Cook for 35-40 mins.",
       microwave: [
@@ -127,6 +130,7 @@ export const meals: Meal[] = [
     storage: "Keep frozen at -18°C.",
     suitableFor: ["GF"],
     ingredients: "Potatoes (35%), Minced Beef (25%), Carrots, Onions, Water, Cheese (**Milk**), Beef Stock, Cornflour, Salt, Pepper, Thyme.",
+    ingredientSummary: "Classic minced beef and carrot filling topped with creamy mashed potato and melted cheese.",
     cookingInstructions: {
       oven: "Oven - 190°C/375°F/Gas 5 for 40-45 mins.",
       microwave: [
@@ -154,6 +158,7 @@ export const meals: Meal[] = [
     storage: "Store at -18°C.",
     suitableFor: ["LS"],
     ingredients: "Chicken Breast (28%), Potatoes, Carrots, Peas, Water, Stuffing (**Wheat** Flour, Onion, Sage), Chicken Stock, Salt, Pepper.",
+    ingredientSummary: "Whole roast chicken breast with savoury stuffing, roast potatoes and peas.",
     cookingInstructions: {
       oven: "Oven - 200°C for 35 mins.",
       microwave: [
@@ -178,6 +183,7 @@ export const meals: Meal[] = [
     reviewsCount: 56,
     storage: "Keep frozen.",
     ingredients: "Egg Fried Rice (40%), Chicken Breast (20%), Pineapple, Peppers, Onions, Sugar, Vinegar, Tomato Paste, Cornflour, Soy Sauce (**Wheat**, **Soya**).",
+    ingredientSummary: "Tender chicken in a fruit-infused tangy sauce served with fluffy egg rice.",
     cookingInstructions: {
       microwave: [
         {
@@ -202,6 +208,7 @@ export const meals: Meal[] = [
     reviewsCount: 210,
     storage: "Store at -18°C.",
     ingredients: "Cod (**Fish**) (30%), Potatoes (30%), Peas, **Wheat** Flour, Vegetable Oil, Salt, Pepper, Raising Agents.",
+    ingredientSummary: "Crispy battered cod fillet served with chunky oven chips and pea purée.",
     cookingInstructions: {
       oven: "Oven - 210°C/425°F/Gas 7 for 25-30 mins.",
       guidelines: "Not suitable for microwave cooking. Cook from frozen."
@@ -222,6 +229,7 @@ export const meals: Meal[] = [
     storage: "Keep frozen at -18°C.",
     suitableFor: ["GF", "LS"],
     ingredients: "Potatoes, White **Fish** (15%), **Salmon** (10%), Smoked Haddock (**Fish**) (5%), **Milk**, Butter, Leeks, Cornflour, Salt, White Pepper.",
+    ingredientSummary: "A medley of white fish, salmon and haddock in a leek sauce with buttery mash topping.",
     cookingInstructions: {
       oven: "Oven - 190°C for 35-40 mins.",
       microwave: [
@@ -247,6 +255,7 @@ export const meals: Meal[] = [
     reviewsCount: 67,
     storage: "Store at -18°C.",
     ingredients: "Lamb Shank (40%), Potatoes, Water, Red Wine, Carrots, Onions, Butter (**Milk**), Mint, Rosemary, Salt, Pepper, Garlic.",
+    ingredientSummary: "Slow-roasted lamb on the bone with a rich wine reduction and minted potato mash.",
     cookingInstructions: {
       oven: "Oven - 180°C for 50-55 mins.",
       microwave: [
@@ -273,6 +282,7 @@ export const meals: Meal[] = [
     storage: "Keep frozen.",
     suitableFor: ["V"],
     ingredients: "Vegetables (Courgettes, Peppers, Aubergine) (30%), Tomatoes, Pasta (**Wheat** Flour, Water), **Milk**, Cheese (**Milk**), Flour, Salt, Herbs.",
+    ingredientSummary: "Layers of pasta with Mediterranean veg in a rich tomato sauce and cheese topping.",
     cookingInstructions: {
       oven: "Oven - 200°C for 35-40 mins.",
       microwave: [
@@ -298,6 +308,7 @@ export const meals: Meal[] = [
     storage: "Keep frozen.",
     suitableFor: ["V"],
     ingredients: "Apples (40%), Custard (**Milk**), **Wheat** Flour, Sugar, Butter (**Milk**), Oats.",
+    ingredientSummary: "Tangy Bramley apple filling with a classic oat crumble topping and custard.",
     cookingInstructions: {
       oven: "Oven - 180°C for 20 mins.",
       microwave: [
@@ -322,6 +333,7 @@ export const meals: Meal[] = [
     storage: "Keep frozen.",
     suitableFor: ["V"],
     ingredients: "**Wheat** Flour, Sugar, **Egg**, Butter (**Milk**), Cocoa Powder, Chocolate Chips (**Soya**), Raising Agents.",
+    ingredientSummary: "Moist chocolate sponge pudding served with a smooth, warm chocolate sauce.",
     cookingInstructions: {
       microwave: [
         {
@@ -347,6 +359,7 @@ export const meals: Meal[] = [
     storage: "Keep frozen at -18°C.",
     suitableFor: ["L4"],
     ingredients: "Chicken Purée (30%), Potato Purée, Carrot Purée, Gravy Purée, Salt, Pepper.",
+    ingredientSummary: "Smooth, texture-modified roast chicken dish with potato and carrot purée.",
     cookingInstructions: {
       microwave: [
         {
@@ -371,6 +384,7 @@ export const meals: Meal[] = [
     storage: "Keep frozen.",
     suitableFor: ["L5"],
     ingredients: "Minced Beef (25%), Mashed Potato (**Milk**), Gravy, Carrots, Salt, Pepper.",
+    ingredientSummary: "Soft, finely minced beef in gravy with creamy mashed potato topping.",
     cookingInstructions: {
       microwave: [
         {
@@ -396,6 +410,7 @@ export const meals: Meal[] = [
     reviewsCount: 187,
     storage: "Keep frozen.",
     ingredients: "Pilau Rice (40%), Chicken Breast (20%), Tomatoes, Cream (**Milk**), Onions, Spices, Yogurt (**Milk**), Ginger, Garlic.",
+    ingredientSummary: "Chicken breast in a creamy, lightly spiced Tikka sauce served with aromatic rice.",
     cookingInstructions: {
       microwave: [
         {
@@ -409,7 +424,6 @@ export const meals: Meal[] = [
   {
     id: "26",
     title: "Gift Voucher - £25",
-    description: "The perfect gift for friends and family.",
     price: 25.00,
     image: chefsKitchen,
     category: "specials",
@@ -417,6 +431,8 @@ export const meals: Meal[] = [
     productCode: "GV25",
     rating: 5.0,
     reviewsCount: 10,
+    ingredientSummary: "A digital or physical voucher valid for all Wiltshire Farm Foods products.",
     description: "Valid for 12 months from date of purchase. Can be used for any Wiltshire Farm Foods order."
   }
 ];
+
