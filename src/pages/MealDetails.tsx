@@ -46,7 +46,7 @@ const MealDetails = () => {
                 <nav className="flex items-center gap-1 text-[10px] md:text-xs text-[#6B6B76] mb-4 uppercase tracking-wider overflow-x-auto whitespace-nowrap">
                     <Link to="/browse-meals" className="hover:text-primary">Browse our meals</Link>
                     <ChevronRight className="h-3 w-3" />
-                    <span className="hover:text-primary cursor-pointer">{meal.category.replace('-', ' ')}</span>
+                    <span className="hover:text-primary cursor-pointer">{meal.category?.replace('-', ' ')}</span>
                     {meal.subCategory && (
                         <>
                             <ChevronRight className="h-3 w-3" />
@@ -70,7 +70,6 @@ const MealDetails = () => {
                             Favourite
                         </button>
 
-                        {/* Dots */}
                         <div className="flex justify-center gap-2 mt-4">
                             <div className="h-2.5 w-2.5 rounded-full bg-[#013220]"></div>
                             <div className="h-2.5 w-2.5 rounded-full bg-[#E5E5E5]"></div>
@@ -123,101 +122,172 @@ const MealDetails = () => {
                     </div>
                 </div>
 
-                {/* Product Information Sections */}
-                <div className="border-t border-[#FBB016]/20 bg-[#FEF9F3]/50 -mx-4 px-4 py-4 mb-8">
-                    <h2 className="text-[#6B6B76] text-lg font-medium">Product Information</h2>
+                {/* Product Information Header */}
+                <div className="bg-[#FAF7F2] border-y border-[#FBB016]/20 -mx-4 px-4 py-3 mb-8">
+                    <span className="text-[#6B6B76] text-lg font-medium">Product Information</span>
                 </div>
 
-                <div className="space-y-12 mb-16">
-                    {/* Cooking Instructions */}
+                {/* Main Content Sections */}
+                <div className="space-y-12 mb-16 px-1">
+                    {/* Cooking Instructions Section */}
                     <section>
-                        <h2 className="font-serif text-3xl text-[#6B6B76] mb-2">Cooking Instructions</h2>
-                        <div className="h-0.5 bg-[#FBB016] w-full mb-6" />
+                        <h2 className="font-serif text-[28px] text-[#6B6B76] mb-1">Cooking Instructions</h2>
+                        <div className="h-[2px] bg-[#FBB016] w-full mb-6" />
 
-                        {meal.cookingInstructions?.oven && (
-                            <div className="mb-8">
-                                <h3 className="font-bold text-[#013220] mb-3 text-lg">Oven Instructions</h3>
-                                <p className="text-[#6B6B76] leading-relaxed">{meal.cookingInstructions.oven}</p>
-                            </div>
-                        )}
+                        <div className="space-y-6">
+                            {meal.cookingInstructions?.oven && (
+                                <div>
+                                    <h3 className="font-bold text-[#013220] mb-2 text-lg">Oven Instructions</h3>
+                                    <p className="text-[#6B6B76] leading-relaxed text-[15px]">{meal.cookingInstructions.oven}</p>
+                                </div>
+                            )}
 
-                        {meal.cookingInstructions?.guidelines && (
-                            <div className="mb-8">
-                                <h3 className="font-bold text-[#013220] mb-3 text-lg">Cooking Guidelines</h3>
-                                <p className="text-[#6B6B76] leading-relaxed">{meal.cookingInstructions.guidelines}</p>
-                            </div>
-                        )}
+                            {meal.cookingInstructions?.guidelines && (
+                                <div>
+                                    <h3 className="font-bold text-[#013220] mb-2 text-lg">Cooking Guidelines</h3>
+                                    <p className="text-[#6B6B76] leading-relaxed text-[15px]">{meal.cookingInstructions.guidelines}</p>
+                                </div>
+                            )}
 
-                        {meal.cookingInstructions?.microwave && (
-                            <div>
-                                <h3 className="font-bold text-[#013220] mb-4 text-lg">Microwave Instructions</h3>
-                                <div className="border-t border-[#6B6B76]/20">
-                                    <h4 className="font-bold text-[#013220] py-4 text-sm tracking-wide uppercase">Power Rating</h4>
-                                    <div className="space-y-0">
-                                        {meal.cookingInstructions.microwave.map((mw, idx) => (
-                                            <div key={idx} className="border-t border-[#6B6B76]/20">
-                                                <button
-                                                    onClick={() => setActiveMicrowave(activeMicrowave === idx ? null : idx)}
-                                                    className="w-full flex items-center justify-between py-4 text-[#6B6B76] font-medium"
-                                                >
-                                                    <span>{mw.power}</span>
-                                                    {activeMicrowave === idx ? <span className="text-xl">−</span> : <span className="text-xl">+</span>}
-                                                </button>
-                                                {activeMicrowave === idx && (
-                                                    <div className="pb-6 pl-4 space-y-2 text-[#6B6B76]">
-                                                        {mw.steps.map((step, sIdx) => (
-                                                            <p key={sIdx}>{step}</p>
-                                                        ))}
-                                                    </div>
-                                                )}
-                                            </div>
-                                        ))}
+                            {meal.cookingInstructions?.microwave && (
+                                <div className="border-b border-[#6B6B76]/20 pb-4">
+                                    <h3 className="font-bold text-[#013220] mb-4 text-lg">Microwave Instructions</h3>
+                                    <div className="border-t border-[#6B6B76]/20">
+                                        <h4 className="font-bold text-[#013220] py-4 text-sm tracking-wide uppercase">Power Rating</h4>
+                                        <div className="space-y-0">
+                                            {meal.cookingInstructions.microwave.map((mw, idx) => (
+                                                <div key={idx} className="border-t border-[#6B6B76]/20">
+                                                    <button
+                                                        onClick={() => setActiveMicrowave(activeMicrowave === idx ? null : idx)}
+                                                        className="w-full flex items-center justify-between py-3 text-[#6B6B76] font-medium hover:text-[#013220] transition-colors"
+                                                    >
+                                                        <span className="text-[15px]">{mw.power}</span>
+                                                        {activeMicrowave === idx ? <span className="text-xl">−</span> : <span className="text-xl">+</span>}
+                                                    </button>
+                                                    {activeMicrowave === idx && (
+                                                        <div className="pb-4 pl-0 space-y-1 text-[#6B6B76] text-[15px]">
+                                                            {mw.steps.map((step, sIdx) => (
+                                                                <p key={sIdx}>{step}</p>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
+                            )}
+                        </div>
+                    </section>
+
+                    {/* Storage Info */}
+                    <section>
+                        <h3 className="font-bold text-[#013220] mb-2 text-lg">Storage Instructions</h3>
+                        <p className="text-[#6B6B76] leading-relaxed text-[15px]">{meal.storage}</p>
+                    </section>
+
+                    {/* Ingredients Section */}
+                    <section>
+                        <h2 className="font-serif text-[28px] text-[#6B6B76] mb-1">Ingredients</h2>
+                        <div className="h-[2px] bg-[#FBB016] w-full mb-6" />
+                        <p className="text-[#6B6B76] leading-relaxed mb-6 text-[15px] whitespace-pre-line"
+                            dangerouslySetInnerHTML={{ __html: meal.ingredients || '' }} />
+
+                        <div className="space-y-4 mb-8">
+                            <div>
+                                <p className="font-bold text-[#013220] mb-1">Allergy Advice</p>
+                                <p className="text-[#6B6B76] text-[15px]">For allergens see ingredients in <span className="font-bold text-[#013220]">bold</span>.</p>
                             </div>
-                        )}
-                    </section>
-
-                    {/* Storage Information */}
-                    <section>
-                        <h3 className="font-bold text-[#013220] mb-3 text-lg">Storage Instructions</h3>
-                        <p className="text-[#6B6B76] leading-relaxed">{meal.storage}</p>
-                    </section>
-
-                    {/* Ingredients */}
-                    <section>
-                        <h2 className="font-serif text-3xl text-[#6B6B76] mb-2">Ingredients</h2>
-                        <div className="h-0.5 bg-[#FBB016] w-full mb-6" />
-                        <p className="text-[#6B6B76] leading-relaxed mb-6 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: meal.ingredients || '' }} />
-
-                        <div className="mb-8">
-                            <p className="font-bold text-[#013220] mb-2">Allergy Advice: <span className="font-normal text-[#6B6B76]">For allergens see ingredients in **bold**.</span></p>
-                            <p className="font-bold text-[#013220] mb-2">Product Warnings</p>
-                            <p className="text-[#6B6B76]">May contain nuts.</p>
+                            <div>
+                                <p className="font-bold text-[#013220] mb-1">Product Warnings</p>
+                                <p className="text-[#6B6B76] text-[15px]">May contain nuts.</p>
+                            </div>
                         </div>
 
-                        <div className="bg-[#6B6B76]/10 p-6 rounded-sm mb-10">
-                            <p className="text-sm text-[#6B6B76] leading-relaxed">
+                        {/* Disclaimer Box */}
+                        <div className="bg-[#8E8E93]/10 p-5 rounded-sm mb-10 border-l-4 border-[#6B6B76]/30 font-sans">
+                            <p className="text-[13px] text-[#6B6B76] leading-relaxed">
                                 Please note that recipes or suppliers may change from time to time if we cannot obtain the quality or quantity of ingredients we need, or to improve flavour. While every effort is made to minimise changes, more than one recipe could be available at the same time. We therefore advise that you always refer to the label on your chosen dish as this will show all the ingredients and indicate any allergens used in that specific recipe. If you have any concerns regarding ingredient changes, please contact your local team.
                             </p>
                         </div>
 
-                        <div className="flex items-center gap-4">
-                            <h3 className="font-bold text-[#013220]">Suitable for</h3>
+                        {/* Suitable For Section */}
+                        <div className="flex items-center gap-6 py-6 border-t border-[#6B6B76]/10">
+                            <h3 className="font-bold text-[#013220] text-lg shrink-0">Suitable for</h3>
                             <div className="flex gap-4">
                                 {meal.suitableFor?.map((suitable, idx) => (
-                                    <div key={idx} className="w-10 h-10 rounded-full border-2 border-[#82C341] flex items-center justify-center text-[#82C341] font-bold text-xs">
-                                        {suitable}
+                                    <div key={idx} className="w-12 h-12 rounded-full border-2 border-[#004225] flex flex-col items-center justify-center bg-white shadow-sm">
+                                        <span className="text-[#004225] font-black text-sm leading-none">{suitable}</span>
                                     </div>
                                 ))}
                             </div>
                         </div>
                     </section>
 
-                    {/* Reviews */}
-                    <section className="pt-8 border-t border-[#6B6B76]/10">
+                    {/* Nutrition Section (Diet Plan) */}
+                    <section>
+                        <h2 className="font-serif text-[28px] text-[#6B6B76] mb-1">Nutritional Information</h2>
+                        <div className="h-[2px] bg-[#FBB016] w-full mb-6" />
+                        <div className="overflow-x-auto">
+                            <table className="w-full text-left text-[14px]">
+                                <thead>
+                                    <tr className="border-b border-[#6B6B76]/20 bg-[#FAF7F2]">
+                                        <th className="py-3 px-4 font-bold text-[#013220]">Nutrient</th>
+                                        <th className="py-3 px-4 font-bold text-[#013220]">per 100g</th>
+                                        <th className="py-3 px-4 font-bold text-[#013220]">per serving</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-[#6B6B76]">
+                                    <tr className="border-b border-[#6B6B76]/10">
+                                        <td className="py-3 px-4">Energy (kcal)</td>
+                                        <td className="py-3 px-4">342kcal</td>
+                                        <td className="py-3 px-4">308kcal</td>
+                                    </tr>
+                                    <tr className="border-b border-[#6B6B76]/10">
+                                        <td className="py-3 px-4">Fat</td>
+                                        <td className="py-3 px-4">18.5g</td>
+                                        <td className="py-3 px-4">16.7g</td>
+                                    </tr>
+                                    <tr className="border-b border-[#6B6B76]/10">
+                                        <td className="py-3 px-4">- of which saturates</td>
+                                        <td className="py-3 px-4">11.2g</td>
+                                        <td className="py-3 px-4">10.1g</td>
+                                    </tr>
+                                    <tr className="border-b border-[#6B6B76]/10">
+                                        <td className="py-3 px-4">Carbohydrate</td>
+                                        <td className="py-3 px-4">38.4g</td>
+                                        <td className="py-3 px-4">34.6g</td>
+                                    </tr>
+                                    <tr className="border-b border-[#6B6B76]/10">
+                                        <td className="py-3 px-4">- of which sugars</td>
+                                        <td className="py-3 px-4">26.5g</td>
+                                        <td className="py-3 px-4">23.9g</td>
+                                    </tr>
+                                    <tr className="border-b border-[#6B6B76]/10">
+                                        <td className="py-3 px-4">Fibre</td>
+                                        <td className="py-3 px-4">2.4g</td>
+                                        <td className="py-3 px-4">2.2g</td>
+                                    </tr>
+                                    <tr className="border-b border-[#6B6B76]/10">
+                                        <td className="py-3 px-4">Protein</td>
+                                        <td className="py-3 px-4">4.8g</td>
+                                        <td className="py-3 px-4">4.3g</td>
+                                    </tr>
+                                    <tr className="border-b border-[#6B6B76]/10">
+                                        <td className="py-3 px-4">Salt</td>
+                                        <td className="py-3 px-4">0.15g</td>
+                                        <td className="py-3 px-4">0.14g</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p className="mt-4 text-[12px] text-[#6B6B76] italic">Reference intake of an average adult (8400kJ/2000kcal)</p>
+                    </section>
+
+                    {/* Reviews Section */}
+                    <section className="pt-12 border-t border-[#6B6B76]/10">
                         <h2 className="font-serif text-[40px] text-[#013220] mb-8">Reviews</h2>
-                        <div className="flex items-center gap-6 mb-12">
+                        <div className="flex flex-wrap items-center gap-6 mb-12">
                             <div className="flex text-[#82C341]">
                                 {[...Array(5)].map((_, i) => (
                                     <Star key={i} className={`h-8 w-8 fill-[#82C341]`} />
@@ -253,7 +323,6 @@ const MealDetails = () => {
                             ))}
                         </div>
                     </section>
-
                 </div>
             </main>
 
