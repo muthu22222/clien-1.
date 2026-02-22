@@ -207,6 +207,82 @@ export const meals: Meal[] = [
       guidelines: "Not suitable for microwave cooking. Cook from frozen."
     }
   },
+  {
+    id: "9",
+    title: "Gluten Free Fish Pie",
+    description: "Pieces of white fish, salmon and smoked haddock in a creamy leek sauce, topped with buttery mash.",
+    price: 6.50,
+    image: cottagePie,
+    category: "fish",
+    diet: "gluten",
+    productCode: "3002",
+    weight: "400g",
+    rating: 4.5,
+    reviewsCount: 45,
+    storage: "Keep frozen at -18°C.",
+    suitableFor: ["GF", "LS"],
+    ingredients: "Potatoes, White **Fish** (15%), **Salmon** (10%), Smoked Haddock (**Fish**) (5%), **Milk**, Butter, Leeks, Cornflour, Salt, White Pepper.",
+    cookingInstructions: {
+      oven: "Oven - 190°C for 35-40 mins.",
+      microwave: [
+        {
+          power: "800 Watt",
+          steps: ["Cook for 8 mins.", "Stand for 2 mins."]
+        }
+      ]
+    }
+  },
+  // MEALS - Lamb
+  {
+    id: "14",
+    title: "Slow Cooked Lamb Shank",
+    description: "Tender lamb shank in a red wine and rosemary gravy, served with minted mash.",
+    price: 8.95,
+    image: chefsKitchen,
+    category: "lamb",
+    range: "chefs",
+    productCode: "4001",
+    weight: "450g",
+    rating: 4.9,
+    reviewsCount: 67,
+    storage: "Store at -18°C.",
+    ingredients: "Lamb Shank (40%), Potatoes, Water, Red Wine, Carrots, Onions, Butter (**Milk**), Mint, Rosemary, Salt, Pepper, Garlic.",
+    cookingInstructions: {
+      oven: "Oven - 180°C for 50-55 mins.",
+      microwave: [
+        {
+          power: "800 Watt",
+          steps: ["Cook for 12 mins.", "Stand for 3 mins."]
+        }
+      ]
+    }
+  },
+  // MEALS - Veg
+  {
+    id: "8",
+    title: "Vegetable Lasagne",
+    description: "Layers of pasta with a rich Mediterranean vegetable and tomato sauce, topped with béchamel and cheese.",
+    price: 5.25,
+    image: heroMeals,
+    category: "veg",
+    diet: "veg",
+    productCode: "4501",
+    weight: "400g",
+    rating: 4.4,
+    reviewsCount: 78,
+    storage: "Keep frozen.",
+    suitableFor: ["V"],
+    ingredients: "Vegetables (Courgettes, Peppers, Aubergine) (30%), Tomatoes, Pasta (**Wheat** Flour, Water), **Milk**, Cheese (**Milk**), Flour, Salt, Herbs.",
+    cookingInstructions: {
+      oven: "Oven - 200°C for 35-40 mins.",
+      microwave: [
+        {
+          power: "800 Watt",
+          steps: ["Cook for 8 mins.", "Stand for 2 mins."]
+        }
+      ]
+    }
+  },
   // DESSERTS
   {
     id: "6",
@@ -232,7 +308,6 @@ export const meals: Meal[] = [
       ]
     }
   },
-  // REMAINDER with basic info for consistency
   {
     id: "7",
     title: "Chocolate Sponge Pudding",
@@ -240,42 +315,23 @@ export const meals: Meal[] = [
     price: 3.25,
     image: chefsKitchen,
     category: "hot-desserts",
+    productCode: "5002",
+    weight: "110g",
     rating: 4.6,
-    reviewsCount: 98
+    reviewsCount: 98,
+    storage: "Keep frozen.",
+    suitableFor: ["V"],
+    ingredients: "**Wheat** Flour, Sugar, **Egg**, Butter (**Milk**), Cocoa Powder, Chocolate Chips (**Soya**), Raising Agents.",
+    cookingInstructions: {
+      microwave: [
+        {
+          power: "800 Watt",
+          steps: ["Cook for 50 seconds.", "Stand for 1 min."]
+        }
+      ]
+    }
   },
-  {
-    id: "9",
-    title: "Gluten Free Fish Pie",
-    description: "Pieces of white fish, salmon and smoked haddock in a creamy leek sauce, topped with buttery mash.",
-    price: 6.50,
-    image: cottagePie,
-    category: "fish",
-    diet: "gluten",
-    rating: 4.5,
-    reviewsCount: 45
-  },
-  {
-    id: "14",
-    title: "Slow Cooked Lamb Shank",
-    description: "Tender lamb shank in a red wine and rosemary gravy, served with minted mash.",
-    price: 8.95,
-    image: chefsKitchen,
-    category: "lamb",
-    range: "chefs",
-    rating: 4.9,
-    reviewsCount: 67
-  },
-  {
-    id: "8",
-    title: "Vegetable Lasagne",
-    description: "Layers of pasta with a rich Mediterranean vegetable and tomato sauce, topped with béchamel and cheese.",
-    price: 5.25,
-    image: heroMeals,
-    category: "veg",
-    diet: "veg",
-    rating: 4.4,
-    reviewsCount: 78
-  },
+  // SOFTER FOODS
   {
     id: "10",
     title: "Purée Roast Chicken",
@@ -284,8 +340,21 @@ export const meals: Meal[] = [
     image: roastChicken,
     category: "softer",
     softer: "l4p",
+    productCode: "6001",
+    weight: "350g",
     rating: 4.8,
-    reviewsCount: 32
+    reviewsCount: 32,
+    storage: "Keep frozen at -18°C.",
+    suitableFor: ["L4"],
+    ingredients: "Chicken Purée (30%), Potato Purée, Carrot Purée, Gravy Purée, Salt, Pepper.",
+    cookingInstructions: {
+      microwave: [
+        {
+          power: "800 Watt",
+          steps: ["Cook for 6 mins.", "Ensure piping hot throughout."]
+        }
+      ]
+    }
   },
   {
     id: "11",
@@ -295,9 +364,23 @@ export const meals: Meal[] = [
     image: cottagePie,
     category: "softer",
     softer: "l5",
+    productCode: "6002",
+    weight: "380g",
     rating: 4.6,
-    reviewsCount: 24
+    reviewsCount: 24,
+    storage: "Keep frozen.",
+    suitableFor: ["L5"],
+    ingredients: "Minced Beef (25%), Mashed Potato (**Milk**), Gravy, Carrots, Salt, Pepper.",
+    cookingInstructions: {
+      microwave: [
+        {
+          power: "800 Watt",
+          steps: ["Cook for 7 mins.", "Stand for 2 mins."]
+        }
+      ]
+    }
   },
+  // WORLD FOODS
   {
     id: "12",
     title: "Chicken Tikka Masala",
@@ -307,9 +390,22 @@ export const meals: Meal[] = [
     category: "world",
     world: "ah",
     range: "asia",
+    productCode: "7001",
+    weight: "400g",
     rating: 4.7,
-    reviewsCount: 187
+    reviewsCount: 187,
+    storage: "Keep frozen.",
+    ingredients: "Pilau Rice (40%), Chicken Breast (20%), Tomatoes, Cream (**Milk**), Onions, Spices, Yogurt (**Milk**), Ginger, Garlic.",
+    cookingInstructions: {
+      microwave: [
+        {
+          power: "800 Watt",
+          steps: ["Pierce film.", "Cook for 5 mins.", "Stir and cook for 3 more mins.", "Stand for 2 mins."]
+        }
+      ]
+    }
   },
+  // SPECIALS
   {
     id: "26",
     title: "Gift Voucher - £25",
@@ -318,7 +414,9 @@ export const meals: Meal[] = [
     image: chefsKitchen,
     category: "specials",
     specials: "vouch",
+    productCode: "GV25",
     rating: 5.0,
-    reviewsCount: 10
+    reviewsCount: 10,
+    description: "Valid for 12 months from date of purchase. Can be used for any Wiltshire Farm Foods order."
   }
 ];
