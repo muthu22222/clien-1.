@@ -25,17 +25,33 @@ const BrowseMeals = () => {
     if (dietFilter && meal.diet !== dietFilter) return false;
     if (softerFilter && meal.softer !== softerFilter) return false;
     if (worldFilter && meal.world !== worldFilter) return false;
-    // For specials and others, you can add similar logic
+    if (specialsFilter && meal.specials !== specialsFilter) return false;
     return true;
   });
 
   // Determine page title based on filter
   const getPageTitle = () => {
     if (categoryFilter) return categoryFilter.charAt(0).toUpperCase() + categoryFilter.slice(1).replace("-", " ");
-    if (rangeFilter) return "Our Ranges";
-    if (dietFilter) return "Special Diets";
+    if (rangeFilter) {
+      const ranges: Record<string, string> = {
+        'best': 'Best Sellers',
+        'chefs': "Chef's Kitchen",
+        'essentials': 'Essentials',
+        'tender': 'Extra Tender',
+        'italy': 'Italian & Mediterranean',
+        'asia': 'Taste of Asia',
+        'mini': 'Mini Meals',
+        'mini-extra': 'Mini Meals Extra',
+        'hearty': 'Hearty Meals',
+        'breakfast': 'Breakfast',
+        'packs': 'Menu Packs'
+      };
+      return ranges[rangeFilter] || "Our Ranges";
+    }
+    if (dietFilter) return "Special Diets - " + (dietFilter === 'veg' ? 'Vegetarian' : dietFilter === 'gluten' ? 'Gluten Free' : 'Free From');
     if (softerFilter) return "Softer Foods";
     if (worldFilter) return "World Foods";
+    if (specialsFilter) return "Specials";
     return "Browse our meals";
   };
 

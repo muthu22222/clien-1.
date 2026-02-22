@@ -15,6 +15,7 @@ export interface Meal {
   diet?: string;
   softer?: string;
   world?: string;
+  specials?: string;
   isNew?: boolean;
   bestSeller?: boolean;
   rating: number;
@@ -46,6 +47,28 @@ export const meals: Meal[] = [
     rating: 4.5,
     reviewsCount: 89,
     bestSeller: true
+  },
+  {
+    id: "13",
+    title: "Beef Lasagne",
+    description: "An Italian classic with rich beef ragu and creamy béchamel sauce.",
+    price: 5.95,
+    image: heroMeals,
+    category: "beef",
+    range: "italy",
+    rating: 4.6,
+    reviewsCount: 145
+  },
+  {
+    id: "15",
+    title: "Winter Stew",
+    description: "Hearty root vegetable and beef stew, perfect for cold days.",
+    price: 5.75,
+    image: heroMeals,
+    category: "beef",
+    range: "hearty",
+    rating: 4.8,
+    reviewsCount: 29
   },
   // MAIN MEALS - Chicken
   {
@@ -83,6 +106,53 @@ export const meals: Meal[] = [
     rating: 4.9,
     reviewsCount: 210
   },
+  {
+    id: "9",
+    title: "Gluten Free Fish Pie",
+    description: "Pieces of white fish, salmon and smoked haddock in a creamy leek sauce, topped with buttery mash.",
+    price: 6.50,
+    image: cottagePie,
+    category: "fish",
+    diet: "gluten",
+    rating: 4.5,
+    reviewsCount: 45
+  },
+  // MAIN MEALS - Pork
+  {
+    id: "16",
+    title: "Roast Pork",
+    description: "Tender roast pork served with apple sauce, roast potatoes and seasonal vegetables.",
+    price: 6.25,
+    image: roastChicken,
+    category: "pork",
+    range: "tender",
+    rating: 4.7,
+    reviewsCount: 64
+  },
+  // MAIN MEALS - Lamb
+  {
+    id: "14",
+    title: "Slow Cooked Lamb Shank",
+    description: "Tender lamb shank in a red wine and rosemary gravy, served with minted mash.",
+    price: 8.95,
+    image: chefsKitchen,
+    category: "lamb",
+    range: "chefs",
+    rating: 4.9,
+    reviewsCount: 67
+  },
+  // MAIN MEALS - Veg
+  {
+    id: "8",
+    title: "Vegetable Lasagne",
+    description: "Layers of pasta with a rich Mediterranean vegetable and tomato sauce, topped with béchamel and cheese.",
+    price: 5.25,
+    image: heroMeals,
+    category: "veg",
+    diet: "veg",
+    rating: 4.4,
+    reviewsCount: 78
+  },
   // DESSERTS
   {
     id: "6",
@@ -104,28 +174,25 @@ export const meals: Meal[] = [
     rating: 4.6,
     reviewsCount: 98
   },
-  // SPECIAL DIETS
   {
-    id: "8",
-    title: "Vegetable Lasagne",
-    description: "Layers of pasta with a rich Mediterranean vegetable and tomato sauce, topped with béchamel and cheese.",
-    price: 5.25,
-    image: heroMeals,
-    category: "veg",
-    diet: "veg",
-    rating: 4.4,
-    reviewsCount: 78
+    id: "17",
+    title: "Sticky Toffee Pudding",
+    description: "A classic British dessert with dates and a rich toffee sauce.",
+    price: 3.50,
+    image: chefsKitchen,
+    category: "hot-desserts",
+    rating: 4.9,
+    reviewsCount: 204
   },
   {
-    id: "9",
-    title: "Gluten Free Fish Pie",
-    description: "Pieces of white fish, salmon and smoked haddock in a creamy leek sauce, topped with buttery mash.",
-    price: 6.50,
-    image: cottagePie,
-    category: "fish",
-    diet: "gluten",
+    id: "18",
+    title: "Strawberry Cheesecake",
+    description: "Creamy cheesecake on a biscuit base topped with strawberry sauce.",
+    price: 2.75,
+    image: chefsKitchen,
+    category: "cold-desserts",
     rating: 4.5,
-    reviewsCount: 45
+    reviewsCount: 112
   },
   // SOFTER FOODS
   {
@@ -134,9 +201,43 @@ export const meals: Meal[] = [
     description: "A smooth purée of roast chicken, carrots and potatoes with gravy. Level 4 suitable.",
     price: 5.50,
     image: roastChicken,
+    category: "softer",
     softer: "l4p",
     rating: 4.8,
     reviewsCount: 32
+  },
+  {
+    id: "19",
+    title: "Purée Salmon & Veg",
+    description: "Smooth purée of salmon and vegetables. Level 4 suitable.",
+    price: 5.75,
+    image: heroMeals,
+    category: "softer",
+    softer: "l4p",
+    rating: 4.7,
+    reviewsCount: 18
+  },
+  {
+    id: "20",
+    title: "Purée Egg & Mayo Sandwich",
+    description: "Level 4 suitable purée sandwich with egg and mayonnaise.",
+    price: 4.50,
+    image: cottagePie,
+    category: "softer",
+    softer: "l4s",
+    rating: 4.4,
+    reviewsCount: 12
+  },
+  {
+    id: "21",
+    title: "Purée Lemon Sponge",
+    description: "Level 4 suitable purée cake with lemon flavor.",
+    price: 3.25,
+    image: chefsKitchen,
+    category: "softer",
+    softer: "l4d",
+    rating: 4.6,
+    reviewsCount: 21
   },
   {
     id: "11",
@@ -144,55 +245,146 @@ export const meals: Meal[] = [
     description: "Finely minced beef in gravy with soft mashed potatoes. Level 5 suitable.",
     price: 5.25,
     image: cottagePie,
+    category: "softer",
     softer: "l5",
     rating: 4.6,
     reviewsCount: 24
   },
+  {
+    id: "22",
+    title: "Soft Roast Pork",
+    description: "Bite-sized pieces of roast pork in gravy. Level 6 suitable.",
+    price: 5.95,
+    image: roastChicken,
+    category: "softer",
+    softer: "l6",
+    rating: 4.7,
+    reviewsCount: 15
+  },
   // WORLD FOODS
+  {
+    id: "23",
+    title: "Caribbean Chicken & Rice",
+    description: "Traditional Caribbean jerk-style chicken with rice and peas.",
+    price: 6.75,
+    image: sweetSour,
+    category: "world",
+    world: "cw",
+    rating: 4.8,
+    reviewsCount: 42
+  },
+  {
+    id: "24",
+    title: "Kosher Beef Goulash",
+    description: "Rich beef stew prepared according to Kosher standards.",
+    price: 7.95,
+    image: heroMeals,
+    category: "world",
+    world: "ks",
+    rating: 4.6,
+    reviewsCount: 28
+  },
   {
     id: "12",
     title: "Chicken Tikka Masala",
     description: "Chicken breast pieces in a mildly spiced tomato and cream sauce, served with pilau rice.",
     price: 6.45,
     image: sweetSour,
+    category: "world",
     world: "ah",
     range: "asia",
     rating: 4.7,
     reviewsCount: 187
   },
   {
-    id: "13",
-    title: "Beef Lasagne",
-    description: "An Italian classic with rich beef ragu and creamy béchamel sauce.",
+    id: "25",
+    title: "Halal Vegetable Biryani",
+    description: "Aromatic rice dish with mixed vegetables, prepared Halal.",
     price: 5.95,
-    image: heroMeals,
-    category: "beef",
-    range: "italy",
-    rating: 4.6,
-    reviewsCount: 145
-  },
-  // OUR RANGES - Chef's Kitchen
-  {
-    id: "14",
-    title: "Slow Cooked Lamb Shank",
-    description: "Tender lamb shank in a red wine and rosemary gravy, served with minted mash.",
-    price: 8.95,
-    image: chefsKitchen,
-    category: "lamb",
-    range: "chefs",
-    rating: 4.9,
-    reviewsCount: 67
+    image: sweetSour,
+    category: "world",
+    world: "ahv",
+    diet: "veg",
+    rating: 4.5,
+    reviewsCount: 34
   },
   // SPECIALS
   {
-    id: "15",
-    title: "Winter Stew",
-    description: "Hearty root vegetable and beef stew, perfect for cold days.",
-    price: 5.75,
+    id: "26",
+    title: "Gift Voucher - £25",
+    description: "The perfect gift for friends and family.",
+    price: 25.00,
+    image: chefsKitchen,
+    category: "specials",
+    specials: "vouch",
+    rating: 5.0,
+    reviewsCount: 10
+  },
+  {
+    id: "30",
+    title: "Tasty Savings Meal Deal",
+    description: "Get a selection of our best-selling meals at a special price.",
+    price: 19.99,
     image: heroMeals,
-    category: "beef",
-    range: "hearty",
+    category: "specials",
+    specials: "save",
+    rating: 4.9,
+    reviewsCount: 88
+  },
+  {
+    id: "31",
+    title: "Winter Comfort Pack",
+    description: "Specially curated meals for the winter season.",
+    price: 45.00,
+    image: cottagePie,
+    category: "specials",
+    specials: "ws",
     rating: 4.8,
-    reviewsCount: 29
+    reviewsCount: 42
+  },
+  // RANGES coverage
+  {
+    id: "27",
+    title: "Mini Roast Chicken",
+    description: "A smaller portion of our classic roast chicken.",
+    price: 3.95,
+    image: roastChicken,
+    category: "chicken",
+    range: "mini",
+    rating: 4.8,
+    reviewsCount: 54
+  },
+  {
+    id: "28",
+    title: "Mini Shepherds Pie",
+    description: "A smaller portion of our hearty shepherds pie.",
+    price: 4.25,
+    image: cottagePie,
+    category: "lamb",
+    range: "mini-extra",
+    rating: 4.7,
+    reviewsCount: 41
+  },
+  {
+    id: "29",
+    title: "Breakfast Pack",
+    description: "All your breakfast essentials in one pack.",
+    price: 15.00,
+    image: chefsKitchen,
+    category: "breakfast",
+    range: "breakfast",
+    rating: 4.9,
+    reviewsCount: 22
+  },
+  {
+    id: "32",
+    title: "Family Menu Pack",
+    description: "Great value pack for the whole family.",
+    price: 35.00,
+    image: chefsKitchen,
+    category: "packs",
+    range: "packs",
+    rating: 4.8,
+    reviewsCount: 15
   }
 ];

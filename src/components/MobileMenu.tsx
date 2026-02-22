@@ -92,7 +92,7 @@ const MobileMenu = ({ open, onClose, activeTab, onTabChange }: MobileMenuProps) 
                     <SubLink to="/browse-meals?range=italy" label="Italian & Mediterranean" onClose={onClose} />
                     <SubLink to="/browse-meals?range=asia" label="Taste of Asia" onClose={onClose} />
                     <SubLink to="/browse-meals?range=mini" label="Mini Meals" onClose={onClose} />
-                    <SubLink to="/browse-meals?range=mini-plus" label="Mini Meals Extra" onClose={onClose} />
+                    <SubLink to="/browse-meals?range=mini-extra" label="Mini Meals Extra" onClose={onClose} />
                     <SubLink to="/browse-meals?range=hearty" label="Hearty Meals" onClose={onClose} />
                     <SubLink to="/browse-meals?range=breakfast" label="Breakfast" onClose={onClose} />
                     <SubLink to="/browse-meals?range=packs" label="Menu Packs" onClose={onClose} />
@@ -120,9 +120,9 @@ const MobileMenu = ({ open, onClose, activeTab, onTabChange }: MobileMenuProps) 
                   </CategoryItem>
 
                   <CategoryItem label="Specials" onClick={() => toggleSubCategory('specials')} isOpen={openSubCategories.includes('specials')}>
-                    <SubLink to="/browse-meals?vouch" label="Gift Vouchers" onClose={onClose} />
-                    <SubLink to="/browse-meals?save" label="Tasty Savings" onClose={onClose} />
-                    <SubLink to="/browse-meals?ws" label="Winter & Spring Menu" onClose={onClose} />
+                    <SubLink to="/browse-meals?specials=vouch" label="Gift Vouchers" onClose={onClose} />
+                    <SubLink to="/browse-meals?specials=save" label="Tasty Savings" onClose={onClose} />
+                    <SubLink to="/browse-meals?specials=ws" label="Winter & Spring Menu" onClose={onClose} />
                   </CategoryItem>
                 </div>
               )}
